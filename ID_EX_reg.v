@@ -22,13 +22,15 @@
 
 module ID_EX_reg(input clk,
                  input Inst_In,
-                 input Operand_A_val_In,
-                 input Operand_B_val_In,
+                 input Operand_A_val_In, //Operand A represents RS1
+                 input Operand_B_val_In, //Operand B represents RS2
                  input Immx_Data_In,
+                 input Inst_Type_In,
                  output Inst_Out,
                  output Operand_A_val_Out,
                  output Operand_B_val_Out,
-                 output Immx_Data_Out
+                 output Immx_Data_Out,
+                 output Inst_Type_Out
                 );
                 
     
@@ -37,11 +39,13 @@ module ID_EX_reg(input clk,
     wire[31:0] Operand_A_val_In;
     wire[31:0] Operand_B_val_In;
     wire[31:0] Immx_Data_In;
+    wire[4:0] Inst_Type_In;
     
     reg[31:0] Inst_Out;
     reg[31:0] Operand_A_val_Out;
     reg[31:0] Operand_B_val_Out;
     reg[31:0] Immx_Data_Out;
+    reg[4:0] Inst_Type_Out;
     
     initial
     begin
@@ -49,6 +53,7 @@ module ID_EX_reg(input clk,
         Operand_A_val_Out <= 32'd0;
         Operand_B_val_Out <= 32'd0;
         Immx_Data_Out <= 32'd0;
+        Inst_Type_Out <= 5'd0;
     end
     
     always@(posedge clk)
@@ -57,6 +62,7 @@ module ID_EX_reg(input clk,
         Operand_A_val_Out <= Operand_A_val_In;
         Operand_B_val_Out <= Operand_B_val_In;
         Immx_Data_Out <= Immx_Data_In;
+        Inst_Type_Out <= Inst_Type_In;
     end
     
 endmodule
