@@ -26,7 +26,7 @@ module IF(input in_Addr,
           output Inst_Out 
     );
     
-    parameter Mem_Size = 10;
+    parameter Mem_Size = 11;
     
     //From the branch execute stage, the multiplexed BranchAddress or current PC address is sent as PC_In_Addr 
     reg[31:0] PC;
