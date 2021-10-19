@@ -32,9 +32,9 @@ module IF_DE_REG(input clk,
     wire[31:0] Inst_In;
     
     reg[31:0] Inst_Out;
-    reg[5:0] RS1_Addr_out;
-    reg[5:0] RS2_Addr_out;
-    reg[5:0] RD_Addr_out;
+    reg[4:0] RS1_Addr_out;
+    reg[4:0] RS2_Addr_out;
+    reg[4:0] RD_Addr_out;
     
     initial
     begin
@@ -47,9 +47,9 @@ module IF_DE_REG(input clk,
     always@(posedge clk)
     begin
         Inst_Out <= Inst_In;
-        RS1_Addr_out <= Inst_In[25:21];
-        RS2_Addr_out <= Inst_In[20:16];
-        RD_Addr_out <= Inst_In[15:11];
+        RS1_Addr_out <= Inst_In[19:15];
+        RS2_Addr_out <= Inst_In[24:20];
+        RD_Addr_out <= Inst_In[11:7];
     end
     
     
