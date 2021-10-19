@@ -29,7 +29,8 @@ module EX(
             output isBranchTaken_Out,
             output Result_Out,
             output Inst_Out,
-            output Operand_B_Out
+            output Operand_B_Out,
+            output Inst_Type_Out
     );
     
     parameter IMMEDIATE_TYPE = 5'b00100;
@@ -63,6 +64,7 @@ module EX(
     reg[31:0] Result_Out;
     reg[31:0] Inst_Out;
     reg[31:0] Operand_B_Out;
+    reg[4:0] Inst_Type_Out;
     
     initial
     begin
@@ -70,11 +72,13 @@ module EX(
         Result_Out <= 32'd0;
         Inst_Out <= 32'd0;
         Operand_B_Out <= 32'd0;
+        Inst_Type_Out <= 5'd0;
     end
     
     always@(*)
     begin
-    
+        
+        Inst_Type_Out <= Inst_Type_In;
         // The beanch taken flag is always initialized to zer0
         // before processing any instruction.
         // If the the branch will be taken in current execution,
@@ -114,6 +118,7 @@ module EX(
                     // Operand A has the data of RS1
                     // Effictive Address <- Rs1 + Immediate_data
                     // rd <- Mem[rs1 + Immediate_data]
+                    // Result_Out has the Offset Address
                     Result_Out <= Operand_A_val_In + Immx_Data_In;
                 end
                 
@@ -123,7 +128,8 @@ module EX(
                     // Operand B has the data of RS2
                     // Effictive Address <- Rs1 + Immediate_data
                     // Mem[rs1 + Immediate_data] <- rs2
-                    // For rs1 to be stored into the memory, ot has to be forwarded to the next stage. Hence, Operand_B_Out. 
+                    // For rs1 to be stored into the memory, ot has to be forwarded to the next stage. Hence, Operand_B_Out.
+                    // Result_Out has the Offset Address 
                     Result_Out <= Operand_A_val_In + Immx_Data_In;
                     Operand_B_Out <= Operand_B_val_In;
                 end
