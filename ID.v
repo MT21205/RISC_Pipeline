@@ -25,8 +25,17 @@ module ID(input Inst_In,
           //output Operand_A,
           //output Operand_B,
           output Imm_Data_Out,
-          output Inst_Out
+          output Inst_Out,
+          output Inst_Type_Out
           );
+          
+    // Based on the value in the Opcode i.e., Inst[6:2] -> 5bits
+    parameter IMMEDIATE_TYPE = 5'b00100;
+    parameter REGISTER_REGISTER_TYPE = 5'b01100;
+    parameter LOAD_TYPE = 5'b00000;
+    parameter STORE_TYPE = 5'b01000;
+    parameter BRANCH_TYPE = 5'b11000;
+    parameter MAC_TYPE = 5'b11111;
           
         
     //reg[3:0] Opcode_Type;
@@ -34,6 +43,7 @@ module ID(input Inst_In,
     //reg[31:0] Operand_B;
     reg[31:0] Imm_Data_Out;
     reg[31:0] Inst_Out;
+    reg[4:0] Inst_Type_Out;
     
     wire[31:0] Inst_In;
     
@@ -49,10 +59,17 @@ module ID(input Inst_In,
     begin
         Inst_Out <= Inst_In;
         //Sign Extending the Immediate Data
-        Imm_Data_Out <= {{16{Inst_In[15]}},{Inst_In[15:0]}};
+        case(Inst_In[6:2])
+            IMMEDIATE_TYPE  : Imm_Data_Out <= {{20{Inst_In[31]}},{Inst_In[31:20]}};
+            // Immediate values of Load are encoded similar to Immediate type Instruction
+            LOAD_TYPE       : Imm_Data_Out <= {{20{Inst_In[31]}},{Inst_In[31:20]}};
+            STORE_TYPE      : Imm_Data_Out <= {{20{Inst_In[31]}},{Inst_In[31:25]},{Inst_In[11:7]}};
+            //Recheck the Immediate encoding for Branch instruction. What is the offset[0] in this case.
+            BRANCH_TYPE     : Imm_Data_Out <= {{20{Inst_In[31]}},{Inst_In[31]},{Inst_In[7]},{Inst_In[30:25]},{Inst_In[11:8]}};
+            default : Imm_Data_Out <= 32'd0;
+        endcase
+        
+        Inst_Type_Out <= Inst_In[6:2];
     end
-    
-    
-    
     
 endmodule
