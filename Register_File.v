@@ -30,14 +30,14 @@ module Register_File(input Inst_In,
           output RS2_Data_Out
                      );
                      
-    parameter reg_cnt = 32;
+    parameter reg_cnt = 32; // RISCV 32I has 32 registers. 
     reg [31:0] register_memory [0:reg_cnt];
     integer i,out;
     reg [31:0]RS1_Data_Out, RS2_Data_Out;
     
-    wire[5:0] RS1_Addr_In;
-    wire[5:0] RS2_Addr_In;
-    wire[5:0] RD_Addr_In;
+    wire[4:0] RS1_Addr_In;
+    wire[4:0] RS2_Addr_In;
+    wire[4:0] RD_Addr_In;
     wire[31:0] RD_Data_In;
     
     //Initialize the operands A and B
@@ -61,10 +61,14 @@ module Register_File(input Inst_In,
     always@(*)
     begin
         if(Reg_Write_flag_In == 1'd1)
-            register_memory[RD_Addr_In] <= RD_Data_In;
+            if(RD_Addr_In == 5'd0)
+                //Register 0 is hardwired to 0.
+                register_memory[RD_Addr_In] <= 32'd0;
+            else
+                register_memory[RD_Addr_In] <= RD_Data_In;
         else
             //temp reg
-            register_memory[32] <= 32'd0;
+            register_memory[0] <= 32'd0;
             
         RS1_Data_Out <= register_memory[RS1_Addr_In];
         RS2_Data_Out <= register_memory[RS2_Addr_In];
