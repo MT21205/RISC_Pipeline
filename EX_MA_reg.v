@@ -25,26 +25,31 @@ module EX_MA_reg(
                 input clk,
                 input Result_In,
                 input Inst_In,
+                input Inst_Type_In,
                 input Operand_B_In,
                 output Result_Out,
                 output Inst_Out,
-                output Operand_B_Out
+                output Operand_B_Out,
+                output Inst_Type_Out
     );
     
     wire[31:0] Result_In;
     wire[31:0] Inst_In;
     wire[31:0] Operand_B_In;    
     wire clk;
+    wire[4:0] Inst_Type_In;
     
     reg[31:0] Result_Out;
     reg[31:0] Inst_Out;
     reg[31:0] Operand_B_Out;
+    reg[4:0] Inst_Type_Out;
     
     initial
     begin
         Result_Out <= 32'd0;
         Inst_Out <= 32'd0;
         Operand_B_Out <= 32'd0;
+        Inst_Type_Out <= 5'd0;
     end
     
     always@(posedge clk)
@@ -52,6 +57,7 @@ module EX_MA_reg(
         Result_Out <= Result_In;
         Inst_Out <= Inst_In;
         Operand_B_Out <= Operand_B_In;
+        Inst_Type_Out <= Inst_Type_In;
     end
     
 endmodule
