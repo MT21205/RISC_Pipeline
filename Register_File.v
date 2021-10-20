@@ -58,7 +58,15 @@ module Register_File(input Inst_In,
         
     end
     
-    always@(*)
+    always@(RS1_Addr_In or RS2_Addr_In)
+    begin
+            
+        RS1_Data_Out <= register_memory[RS1_Addr_In];
+        RS2_Data_Out <= register_memory[RS2_Addr_In];
+        
+    end
+    
+    always@(Reg_Write_flag_In or RD_Addr_In)
     begin
         if(Reg_Write_flag_In == 1'd1)
             if(RD_Addr_In == 5'd0)
@@ -67,14 +75,8 @@ module Register_File(input Inst_In,
             else
                 register_memory[RD_Addr_In] <= RD_Data_In;
         else
-            //temp reg
-            register_memory[0] <= 32'd0;
-            
-        RS1_Data_Out <= register_memory[RS1_Addr_In];
-        RS2_Data_Out <= register_memory[RS2_Addr_In];
-        
+            // If Reg_Write_flag is 0, then do not write anything onto the registers R1-R31 
+            register_memory[0] <= 32'd0;        
     end
                  
-    
-
 endmodule
