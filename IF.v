@@ -26,10 +26,12 @@ module IF(input in_Addr,
           output Inst_Out 
     );
     
-    parameter Mem_Size = 11;
+    parameter Mem_Size = 12;
     
     //From the branch execute stage, the multiplexed BranchAddress or current PC address is sent as PC_In_Addr 
     reg[31:0] PC;
+    //An Additional reg NPC is used only for notation and debug purpose
+    reg[31:0] NPC;
     reg[31:0] Inst_Out; 
     wire isBranchTaken;
     wire[31:0] in_Addr;
@@ -46,6 +48,7 @@ module IF(input in_Addr,
     initial
     begin
         PC <= 32'd0;
+        NPC <= 32'd0;
         Inst_Out <= 32'd0;
     end
     
@@ -78,12 +81,24 @@ module IF(input in_Addr,
     //Instead it is included in IF stage itself to fetch the PC appropriately with the clk as the reference.
     always@(posedge clk)
     begin
+    /*
         Inst_Out <= Inst_memory[PC];
         
         if(isBranchTaken == 1)
             PC <= in_Addr;
         else
             PC <= PC+32'd1;
+    */
+        PC = NPC;
+        if(isBranchTaken == 1'd1)
+        begin
+            PC = in_Addr;
+            Inst_Out = Inst_memory[PC];
+        end
+        else
+            Inst_Out = Inst_memory[PC];
+        
+        NPC = PC + 32'd1;
 
     end
     
