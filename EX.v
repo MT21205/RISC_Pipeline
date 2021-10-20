@@ -77,7 +77,7 @@ module EX(
     
     always@(*)
     begin
-        
+        Inst_Out <= Inst_In;
         Inst_Type_Out <= Inst_Type_In;
         // The beanch taken flag is always initialized to zer0
         // before processing any instruction.
