@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 19.10.2021 20:36:34
+// Create Date: 16.10.2021 18:16:50
 // Design Name: 
-// Module Name: IF_ID_EX_MA_RW_Test_tb
+// Module Name: RISC_pipe
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,9 +20,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module IF_ID_EX_MA_RW_Test_tb;
+module RISC_pipe(input clk
+                 //input in_Addr
+                 );
 
-    reg clk;
+    wire clk;
     //wire[31:0] in_Addr;
     //reg isBranchTaken;
     
@@ -92,7 +94,7 @@ module IF_ID_EX_MA_RW_Test_tb;
                                //Inputs
                                 .clk(clk), 
                                 .Inst_In(IF_Inst_Out),
-                                .branch_kill_flag_In(EX_isBranchTaken_Out), 
+                                .branch_kill_flag(EX_isBranchTaken_Out), 
                                 //Outputs
                                 .Inst_Out(IF_DE_Inst_out),
                                 .RS1_Addr_out(IF_DE_RS1_Addr_out),
@@ -127,7 +129,7 @@ module IF_ID_EX_MA_RW_Test_tb;
                             .Operand_B_val_In(ID_RS2_Data_Out),
                             .Immx_Data_In(ID_Imm_out),
                             .Inst_Type_In(ID_Inst_Type_out),
-                            .branch_kill_flag_In(EX_isBranchTaken_Out),
+                            .branch_kill_flag(EX_isBranchTaken_Out),
                             //outputs
                             .Inst_Out(ID_EX_Inst_out),
                             .Operand_A_val_Out(ID_EX_A_out),
@@ -198,21 +200,6 @@ module IF_ID_EX_MA_RW_Test_tb;
             .Data_Out(RW_Data_Out),
             .Reg_Write_flag_Out(RW_Reg_Write_flag_Out),
             .Dest_Reg_Addr_Out(RW_Dest_Reg_Addr_Out)
-            );
-                    
-    initial
-    begin
-        clk <= 1'd0;
-    end
-    
-    always
-        #5 clk <= ~clk;
-        
-    initial
-    begin
-        #2
-        #160                
-        $finish;
-    end
+            );               
 
 endmodule
