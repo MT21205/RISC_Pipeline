@@ -227,7 +227,8 @@ module IF_ID_EX_MA_RW_Test_tb;
     initial
     begin
         #2
-        #160                
+        #160
+                        
         $finish;
     end
 
