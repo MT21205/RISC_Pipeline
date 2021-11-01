@@ -33,6 +33,7 @@ module Register_File(input Inst_In,
     parameter reg_cnt = 32; // RISCV 32I has 32 registers. 
     reg [31:0] register_memory [0:reg_cnt];
     integer i,out;
+    integer reg_file_data;
     reg [31:0]RS1_Data_Out, RS2_Data_Out;
     
     wire[4:0] RS1_Addr_In;
@@ -77,7 +78,18 @@ module Register_File(input Inst_In,
                 register_memory[RD_Addr_In] <= RD_Data_In;
         else
             // If Reg_Write_flag is 0, then do not write anything onto the registers R1-R31 
-            register_memory[0] <= 32'd0;        
+            register_memory[0] <= 32'd0; 
+           
+        reg_file_data = $fopen("Updated_Reg_Mem.txt","w");
+        
+        
+        for (i = 0; i < reg_cnt+1; i = i + 1)
+        begin
+            $fdisplay(reg_file_data,"%b",register_memory[i]); 
+        end
+        
+        $fclose(reg_file_data);
+        
     end
                  
 endmodule
