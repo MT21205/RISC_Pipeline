@@ -22,8 +22,9 @@
 
 module RW(
             input Data_In,
-            input Inst_In,
+            //input Inst_In,
             input Inst_Type_In,
+            input RD_Addr_In,
             output Data_Out,
             output Reg_Write_flag_Out,
             output Dest_Reg_Addr_Out
@@ -38,8 +39,9 @@ module RW(
     parameter MAC_TYPE = 5'b11111;
     
     wire[31:0] Data_In;
-    wire[31:0] Inst_In;
+    //wire[31:0] Inst_In;
     wire[4:0] Inst_Type_In;
+    wire[4:0] RD_Addr_In;
     
     reg[31:0] Data_Out;
     reg Reg_Write_flag_Out;
@@ -61,11 +63,11 @@ module RW(
             REGISTER_REGISTER_TYPE,
             LOAD_TYPE               :
                 begin 
-                    if(Inst_In != 32'd0)
+                    if(RD_Addr_In != 32'd0)
                     begin
                         Reg_Write_flag_Out <= 32'd1;
                         Data_Out <= Data_In;
-                        Dest_Reg_Addr_Out <= Inst_In[11:7];
+                        Dest_Reg_Addr_Out <= RD_Addr_In;
                     end
                 end
             default                 : Reg_Write_flag_Out <= 32'd0;

@@ -55,7 +55,7 @@ module IF_ID_EX_MAreg_Test_tb;
     //Inputs and nets for EX Stage
     wire EX_isBranchTaken_Out;
     wire[31:0] EX_Result_Out;
-    wire[31:0] EX_Inst_Out;
+    //wire[31:0] EX_Inst_Out;
     wire[31:0] EX_Operand_B_Out;
     wire[4:0] EX_Inst_Type_Out;
     
@@ -112,12 +112,14 @@ module IF_ID_EX_MAreg_Test_tb;
                             .Operand_B_val_In(ID_RS2_Data_Out),
                             .Immx_Data_In(ID_Imm_out),
                             .Inst_Type_In(ID_Inst_Type_out),
+                            .RD_Addr_In(IF_DE_RD_Addr_out),
                             //outputs
                             .Inst_Out(ID_EX_Inst_out),
                             .Operand_A_val_Out(ID_EX_A_out),
                             .Operand_B_val_Out(ID_EX_B_out),
                             .Immx_Data_Out(ID_EX_Imm_Out),
-                            .Inst_Type_Out(ID_EX_Inst_Type_Out)
+                            .Inst_Type_Out(ID_EX_Inst_Type_Out),
+                            .RD_Addr_Out(ID_EX_RD_Addr_Out)
                             );
                             
     EX execute(
@@ -127,12 +129,14 @@ module IF_ID_EX_MAreg_Test_tb;
                 .Operand_B_val_In(ID_EX_B_out),
                 .Immx_Data_In(ID_EX_Imm_Out),
                 .Inst_Type_In(ID_EX_Inst_Type_Out),
+                .RD_Addr_In(ID_EX_RD_Addr_Out),
                 //Outputs
                 .isBranchTaken_Out(EX_isBranchTaken_Out),
                 .Result_Out(EX_Result_Out),
-                .Inst_Out(EX_Inst_Out),
+                //.Inst_Out(EX_Inst_Out),
                 .Operand_B_Out(EX_Operand_B_Out),
-                .Inst_Type_Out(EX_Inst_Type_Out)
+                .Inst_Type_Out(EX_Inst_Type_Out),
+                .RD_Addr_Out(EX_RD_Addr_Out)
                 );
     
     EX_MA_reg execute_ma_register(

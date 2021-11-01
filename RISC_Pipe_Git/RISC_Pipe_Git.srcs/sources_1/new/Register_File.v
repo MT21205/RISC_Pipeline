@@ -49,7 +49,8 @@ module Register_File(input Inst_In,
     
     initial
     begin
-        out = $fopen("D:/College/IIITD/Others/Verilog_Lab/RISV_Pipe_Test/RISV_Pipe_Test.srcs/sources_1/new/Register_Memory.txt","r");
+        //out = $fopen("D:/College/IIITD/Others/Verilog_Lab/RISV_Pipe_Test/RISV_Pipe_Test.srcs/sources_1/new/Register_Memory.txt","r");
+        out = $fopen("Register_Memory.txt","r");
         for (i = 0; i < reg_cnt+1; i = i + 1)
         begin
             //Reading the contents of the register

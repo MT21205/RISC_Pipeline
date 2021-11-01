@@ -68,7 +68,8 @@ module IF(input in_Addr,
     initial 
     begin
         //$readmemb("./Instruction_Memory.txt", mem_read)
-        mem_read = $fopen("D:/College/IIITD/Others/Verilog_Lab/RISV_Pipe_Test/RISV_Pipe_Test.srcs/sources_1/new/Instruction_Memory.txt","r");
+        //mem_read = $fopen("D:/College/IIITD/Others/Verilog_Lab/RISV_Pipe_Test/RISV_Pipe_Test.srcs/sources_1/new/Instruction_Memory.txt","r");
+        mem_read = $fopen("Instruction_Memory.txt","r");
         //mem_read = $fopen("/Instruction_Memory.txt","r");
         for (integer idx = 0; idx < Mem_Size; idx = idx+1)
         begin

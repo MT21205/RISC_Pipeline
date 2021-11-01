@@ -26,11 +26,13 @@ module EX(
             input Operand_B_val_In,
             input Immx_Data_In,
             input Inst_Type_In,
+            input RD_Addr_In,
             output isBranchTaken_Out,
             output Result_Out,
-            output Inst_Out,
+            //output Inst_Out,
             output Operand_B_Out,
-            output Inst_Type_Out
+            output Inst_Type_Out,
+            output RD_Addr_Out
     );
     
     parameter IMMEDIATE_TYPE = 5'b00100;
@@ -55,6 +57,7 @@ module EX(
     wire[31:0] Operand_B_val_In;
     wire[31:0] Immx_Data_In;
     wire[4:0] Inst_Type_In;
+    wire[4:0] RD_Addr_In;
     
     reg isBranchTaken_Out;
     // Result_Out is a 32-bit value representing either of the following:
@@ -62,23 +65,26 @@ module EX(
     // b) Branch Address
     // c) Address in Memory for load or Store
     reg[31:0] Result_Out;
-    reg[31:0] Inst_Out;
+    //reg[31:0] Inst_Out;
     reg[31:0] Operand_B_Out;
     reg[4:0] Inst_Type_Out;
+    reg[4:0] RD_Addr_Out;
     
     initial
     begin
         isBranchTaken_Out <= 1'd0;
         Result_Out <= 32'd0;
-        Inst_Out <= 32'd0;
+        //Inst_Out <= 32'd0;
         Operand_B_Out <= 32'd0;
         Inst_Type_Out <= 5'd0;
+        RD_Addr_Out <= 5'd0;
     end
     
     always@(*)
     begin
-        Inst_Out <= Inst_In;
+        //Inst_Out <= Inst_In;
         Inst_Type_Out <= Inst_Type_In;
+        RD_Addr_Out <= RD_Addr_In;
         // The beanch taken flag is always initialized to zer0
         // before processing any instruction.
         // If the the branch will be taken in current execution,

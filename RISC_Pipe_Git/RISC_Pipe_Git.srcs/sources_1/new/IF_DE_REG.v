@@ -22,8 +22,8 @@
 
 module IF_DE_REG(input clk,
                  input Inst_In,
+                 input branch_kill_flag_In,
                  output Inst_Out,
-                 input branch_kill_flag,
                  output RS1_Addr_out,
                  output RS2_Addr_out,
                  output RD_Addr_out           
@@ -31,7 +31,7 @@ module IF_DE_REG(input clk,
     
     wire clk;
     wire[31:0] Inst_In;
-    wire branch_kill_flag;
+    wire branch_kill_flag_In;
     
     reg[31:0] Inst_Out;
     reg[4:0] RS1_Addr_out;
@@ -51,7 +51,7 @@ module IF_DE_REG(input clk,
         // If a branch is taken, then the instructions in the fetch and the decode stage should to be killed.
         // Hence, these content aren't to be transmitte to the next stages.
         // To achieve this, an xx is being sent to the next stages. 
-        if(branch_kill_flag == 1'd1)
+        if(branch_kill_flag_In == 1'd1)
         begin
             Inst_Out <= 32'dx;
             RS1_Addr_out <= 5'dx;
