@@ -74,7 +74,7 @@ module IF(input in_Addr,
         for (integer idx = 0; idx < Mem_Size; idx = idx+1)
         begin
             $fscanf(mem_read,"%b\n",Inst_memory[idx]);
-            $display("%d",Inst_memory[idx]);
+            //$display("%d",Inst_memory[idx]);
         end
     end    
 
