@@ -23,10 +23,11 @@
 module IF(input in_Addr,
           input isBranchTaken,
           input clk,
+          input stall_ctrl_in,
           output Inst_Out 
     );
     
-    parameter Mem_Size = 12;
+    parameter Mem_Size = 17;
     
     //From the branch execute stage, the multiplexed BranchAddress or current PC address is sent as PC_In_Addr 
     reg[31:0] PC;
@@ -36,6 +37,7 @@ module IF(input in_Addr,
     wire isBranchTaken;
     wire[31:0] in_Addr;
     wire clk;
+    wire stall_ctrl_in;
     
     //Instruction Reg and Memory
     reg [31:0] Instruction;
@@ -49,7 +51,7 @@ module IF(input in_Addr,
     begin
         PC <= 32'd0;
         NPC <= 32'd0;
-        Inst_Out <= 32'd0;
+        Inst_Out <= 32'dx;
     end
     
     //Initialize Memory
@@ -90,16 +92,24 @@ module IF(input in_Addr,
         else
             PC <= PC+32'd1;
     */
-        PC = NPC;
-        if(isBranchTaken == 1'd1)
+    if(stall_ctrl_in != 1'b1)
         begin
-            PC = in_Addr;
-            Inst_Out = Inst_memory[PC];
+            PC = NPC;
+            if(isBranchTaken == 1'd1)
+            begin
+                PC = in_Addr;
+                Inst_Out = Inst_memory[PC];
+            end
+            else
+                Inst_Out = Inst_memory[PC];
+            
+            NPC = PC + 32'd1;
         end
-        else
-            Inst_Out = Inst_memory[PC];
-        
-        NPC = PC + 32'd1;
+    else
+        begin
+            PC = PC;
+            NPC = NPC;
+        end
 
     end
     

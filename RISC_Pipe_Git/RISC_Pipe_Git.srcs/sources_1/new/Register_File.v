@@ -44,8 +44,8 @@ module Register_File(input Inst_In,
     //Initialize the operands A and B
     initial
     begin
-        RS1_Data_Out <= 32'd0; // Operand A
-        RS2_Data_Out <= 32'd0; // Operand B
+        RS1_Data_Out <= 32'dx; // Operand A
+        RS2_Data_Out <= 32'dx; // Operand B
     end
     
     initial
@@ -68,7 +68,7 @@ module Register_File(input Inst_In,
         
     end
     
-    always@(Reg_Write_flag_In or RD_Addr_In)
+    always@(Reg_Write_flag_In or RD_Addr_In or RD_Data_In)
     begin
         if(Reg_Write_flag_In == 1'd1)
             if(RD_Addr_In == 5'd0)

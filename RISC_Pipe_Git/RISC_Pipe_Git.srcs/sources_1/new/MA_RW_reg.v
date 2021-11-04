@@ -45,10 +45,10 @@ module MA_RW_reg(
 
     initial
     begin
-        Data_Out <= 32'd0;
+        Data_Out <= 32'dx;
         //Inst_Out <= 32'd0;
-        Inst_Type_Out <= 5'd0;
-        RD_Addr_Out <= 5'd0;
+        Inst_Type_Out <= 5'dx;
+        RD_Addr_Out <= 5'dx;
     end
     
     always@(posedge clk)

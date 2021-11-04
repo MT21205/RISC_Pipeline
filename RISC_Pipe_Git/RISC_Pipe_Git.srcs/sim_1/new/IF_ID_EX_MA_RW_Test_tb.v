@@ -44,6 +44,7 @@ module IF_ID_EX_MA_RW_Test_tb;
     wire[31:0] ID_Imm_out;
     wire[31:0] ID_Inst_out;
     wire[4:0] ID_Inst_Type_out;
+    wire[4:0] ID_RD_Addr_Out;
     
     //Inputs and nets for ID_EX Register
     wire[31:0] ID_EX_Inst_out;
@@ -72,6 +73,7 @@ module IF_ID_EX_MA_RW_Test_tb;
     wire[31:0] MA_Register_Data_Out;
     //wire[31:0] MA_Inst_Out;
     wire[4:0] MA_RD_Addr_Out;
+    wire[4:0] MA_Inst_Type_Out;
     
     //Inputs and nets for MA_RW Register
     wire[31:0] MA_RW_Data_Out;
@@ -119,10 +121,12 @@ module IF_ID_EX_MA_RW_Test_tb;
     ID Instruction_Decode(
                             //Inputs
                             .Inst_In(IF_DE_Inst_out),
+                            .RD_Addr_In(IF_DE_RD_Addr_out),
                             //Outputs
                             .Imm_Data_Out(ID_Imm_out),
                             .Inst_Out(ID_Inst_out),
-                            .Inst_Type_Out(ID_Inst_Type_out)
+                            .Inst_Type_Out(ID_Inst_Type_out),
+                            .RD_Addr_Out(ID_RD_Addr_Out)
                             );
     ID_EX_reg ID_EX_Register(
                             //inputs
@@ -133,7 +137,7 @@ module IF_ID_EX_MA_RW_Test_tb;
                             .Immx_Data_In(ID_Imm_out),
                             .Inst_Type_In(ID_Inst_Type_out),
                             .branch_kill_flag_In(EX_isBranchTaken_Out),
-                            .RD_Addr_In(IF_DE_RD_Addr_out),
+                            .RD_Addr_In(ID_RD_Addr_Out),
                             //outputs
                             .Inst_Out(ID_EX_Inst_out),
                             .Operand_A_val_Out(ID_EX_A_out),
@@ -187,7 +191,8 @@ module IF_ID_EX_MA_RW_Test_tb;
                     //Outputs
                     .Register_Data_Out(MA_Register_Data_Out),
                     //.Inst_Out(MA_Inst_Out),
-                    .RD_Addr_Out(MA_RD_Addr_Out)
+                    .RD_Addr_Out(MA_RD_Addr_Out),
+                    .Inst_Type_Out(MA_Inst_Type_Out)
                     );
                     
     MA_RW_reg MA_RW_Register(

@@ -27,8 +27,8 @@ module Data_Memory(
                     input Ld_Str_Addr_Reg_Result_In,
                     input RD_Addr_In,
                     output Register_Data_Out,
-                    output RD_Addr_Out
-                    //output Inst_Out
+                    output RD_Addr_Out,
+                    output Inst_Type_Out
                     );
 
     parameter DATA_MEM_SIZE = 1024; // Memory of 1024 words.
@@ -58,7 +58,7 @@ module Data_Memory(
     // b) Arithematic Result from the execute stage to be written to the destination register.
     
     reg[31:0] Register_Data_Out;
-    //reg[31:0] Inst_Out;
+    reg[4:0] Inst_Type_Out;
     reg[4:0] RD_Addr_Out;
     
     // Data Memory
@@ -79,14 +79,14 @@ module Data_Memory(
     
     initial
     begin
-        Register_Data_Out <= 32'd0;
-        //Inst_Out <= 32'd0;
-        RD_Addr_Out <= 5'd0;
+        Register_Data_Out <= 32'dx;
+        Inst_Type_Out <= 32'dx;
+        RD_Addr_Out <= 5'dx;
     end
     
     always@(*)
     begin
-        //Inst_Out <= Inst_In;
+        Inst_Type_Out <= Inst_Type_In;
         RD_Addr_Out <= RD_Addr_In;
         case(Inst_Type_In)
             LOAD_TYPE   : Register_Data_Out <= Data_Memory[Ld_Str_Addr_Reg_Result_In];
