@@ -46,6 +46,7 @@ module RISC_pipe(input clk
     wire[31:0] ID_Imm_out;
     wire[31:0] ID_Inst_out;
     wire[4:0] ID_Inst_Type_out;
+    wire[4:0] ID_RD_Addr_Out;
     
     //Inputs and nets for ID_EX Register
     wire[31:0] ID_EX_Inst_out;
@@ -53,39 +54,55 @@ module RISC_pipe(input clk
     wire[31:0] ID_EX_B_out;
     wire[31:0] ID_EX_Imm_Out;
     wire[4:0] ID_EX_Inst_Type_Out;
+    wire[4:0] ID_EX_RD_Addr_Out;
     
     //Inputs and nets for EX Stage
     wire EX_isBranchTaken_Out;
     wire[31:0] EX_Result_Out;
-    wire[31:0] EX_Inst_Out;
+    //wire[31:0] EX_Inst_Out;
     wire[31:0] EX_Operand_B_Out;
     wire[4:0] EX_Inst_Type_Out;
+    wire[4:0] EX_RD_Addr_Out;
     
     //Inputs and nets for EX_MA Register
     wire[31:0] EX_MA_Result_Out;
-    wire[31:0] EX_MA_Inst_Out;
+    //wire[31:0] EX_MA_Inst_Out;
     wire[31:0] EX_MA_Operand_B_Out;
     wire[4:0] EX_MA_Inst_Type_Out;
+    wire[4:0] EX_MA_RD_Addr_Out;
     
     //Inputs and nets for MA Stage
     wire[31:0] MA_Register_Data_Out;
-    wire[31:0] MA_Inst_Out;
+    //wire[31:0] MA_Inst_Out;
+    wire[4:0] MA_RD_Addr_Out;
+    wire[4:0] MA_Inst_Type_Out;
     
     //Inputs and nets for MA_RW Register
     wire[31:0] MA_RW_Data_Out;
-    wire[31:0] MA_RW_Inst_Out;
+    //wire[31:0] MA_RW_Inst_Out;
     wire[4:0] MA_RW_Inst_Type_Out;
+    wire[4:0] MA_RW_RD_Addr_Out;
     
     //Inputs and nets for RW Stage
     wire[31:0] RW_Data_Out;
     wire RW_Reg_Write_flag_Out;
     wire[4:0] RW_Dest_Reg_Addr_Out;
+    wire[4:0] WB_RD_Addr_Out;
+    
+    
+    //Outputs of Forward Unit
+    wire stall_ctrl;
+    wire fwdA;
+    wire fwdB;
+    wire[31:0] Forward_Unit_Result_Out;
+    
     
     IF Instruction_Fetch (
                             //Inputs
                             .in_Addr(EX_Result_Out), // Result from execte stage can have the branch address if the branch is taken.
                             .isBranchTaken(EX_isBranchTaken_Out), 
                             .clk(clk),
+                            .stall_ctrl_in(stall_ctrl),
                             //Output 
                             .Inst_Out(IF_Inst_Out)
                             );
@@ -94,7 +111,8 @@ module RISC_pipe(input clk
                                //Inputs
                                 .clk(clk), 
                                 .Inst_In(IF_Inst_Out),
-                                .branch_kill_flag(EX_isBranchTaken_Out), 
+                                .branch_kill_flag_In(EX_isBranchTaken_Out), 
+                                .stall_ctrl_in(stall_ctrl),
                                 //Outputs
                                 .Inst_Out(IF_DE_Inst_out),
                                 .RS1_Addr_out(IF_DE_RS1_Addr_out),
@@ -116,10 +134,14 @@ module RISC_pipe(input clk
     ID Instruction_Decode(
                             //Inputs
                             .Inst_In(IF_DE_Inst_out),
+                            .stall_ctrl_in(stall_ctrl),
+                            .RD_Addr_In(IF_DE_RD_Addr_out),
+                            .clk(clk),
                             //Outputs
                             .Imm_Data_Out(ID_Imm_out),
                             .Inst_Out(ID_Inst_out),
-                            .Inst_Type_Out(ID_Inst_Type_out)
+                            .Inst_Type_Out(ID_Inst_Type_out),
+                            .RD_Addr_Out(ID_RD_Addr_Out)
                             );
     ID_EX_reg ID_EX_Register(
                             //inputs
@@ -129,13 +151,18 @@ module RISC_pipe(input clk
                             .Operand_B_val_In(ID_RS2_Data_Out),
                             .Immx_Data_In(ID_Imm_out),
                             .Inst_Type_In(ID_Inst_Type_out),
-                            .branch_kill_flag(EX_isBranchTaken_Out),
+                            .branch_kill_flag_In(EX_isBranchTaken_Out),
+                            .RD_Addr_In(ID_RD_Addr_Out),
+                            .RS1_Fwd_Flag_In(fwdA),
+                            .RS2_Fwd_Flag_In(fwdB),
+                            .RS1_RS2_Fwd_Data_In(Forward_Unit_Result_Out),
                             //outputs
                             .Inst_Out(ID_EX_Inst_out),
                             .Operand_A_val_Out(ID_EX_A_out),
                             .Operand_B_val_Out(ID_EX_B_out),
                             .Immx_Data_Out(ID_EX_Imm_Out),
-                            .Inst_Type_Out(ID_EX_Inst_Type_Out)
+                            .Inst_Type_Out(ID_EX_Inst_Type_Out),
+                            .RD_Addr_Out(ID_EX_RD_Addr_Out)
                             );
                             
     EX Execute(
@@ -145,12 +172,14 @@ module RISC_pipe(input clk
                 .Operand_B_val_In(ID_EX_B_out),
                 .Immx_Data_In(ID_EX_Imm_Out),
                 .Inst_Type_In(ID_EX_Inst_Type_Out),
+                .RD_Addr_In(ID_EX_RD_Addr_Out),
                 //Outputs
                 .isBranchTaken_Out(EX_isBranchTaken_Out),
                 .Result_Out(EX_Result_Out),
-                .Inst_Out(EX_Inst_Out),
+                //.Inst_Out(EX_Inst_Out),
                 .Operand_B_Out(EX_Operand_B_Out),
-                .Inst_Type_Out(EX_Inst_Type_Out)
+                .Inst_Type_Out(EX_Inst_Type_Out),
+                .RD_Addr_Out(EX_RD_Addr_Out)
                 );
     
     EX_MA_reg EX_MA_Register(
@@ -158,48 +187,100 @@ module RISC_pipe(input clk
                 //.isBranchTaken_Out(),
                 .clk(clk),
                 .Result_In(EX_Result_Out),
-                .Inst_In(EX_Inst_Out),
+                //.Inst_In(EX_Inst_Out),
                 .Inst_Type_In(EX_Inst_Type_Out),
                 .Operand_B_In(EX_Operand_B_Out),
+                .RD_Addr_In(EX_RD_Addr_Out),
                 //Outputs
                 .Result_Out(EX_MA_Result_Out),
-                .Inst_Out(EX_MA_Inst_Out),
+                //.Inst_Out(EX_MA_Inst_Out),
                 .Operand_B_Out(EX_MA_Operand_B_Out),
-                .Inst_Type_Out(EX_MA_Inst_Type_Out)
+                .Inst_Type_Out(EX_MA_Inst_Type_Out),
+                .RD_Addr_Out(EX_MA_RD_Addr_Out)
     );
     
     Data_Memory MA_Stage(
                     // Inputs
-                    .Inst_In(EX_MA_Inst_Out),
+                    //.Inst_In(EX_MA_Inst_Out),
                     .Inst_Type_In(EX_MA_Inst_Type_Out),
                     .Store_Operand_B_Data_In(EX_MA_Operand_B_Out),
                     .Ld_Str_Addr_Reg_Result_In(EX_MA_Result_Out),
+                    .RD_Addr_In(EX_MA_RD_Addr_Out),
                     //Outputs
                     .Register_Data_Out(MA_Register_Data_Out),
-                    .Inst_Out(MA_Inst_Out)
+                    //.Inst_Out(MA_Inst_Out),
+                    .RD_Addr_Out(MA_RD_Addr_Out),
+                    .Inst_Type_Out(MA_Inst_Type_Out)
                     );
                     
     MA_RW_reg MA_RW_Register(
                 //Inputs
                 .clk(clk),
                 .Data_In(MA_Register_Data_Out),
-                .Inst_In(MA_Inst_Out),
+                //.Inst_In(MA_Inst_Out),
                 .Inst_Type_In(EX_MA_Inst_Type_Out),
+                .RD_Addr_In(MA_RD_Addr_Out),
                 //Outputs
                 .Data_Out(MA_RW_Data_Out),
-                .Inst_Out(MA_RW_Inst_Out),
-                .Inst_Type_Out(MA_RW_Inst_Type_Out)
+                //.Inst_Out(MA_RW_Inst_Out),
+                .Inst_Type_Out(MA_RW_Inst_Type_Out),
+                .RD_Addr_Out(MA_RW_RD_Addr_Out)
                 ); 
                 
     RW Register_Writeback(
             //Inputs
             .Data_In(MA_RW_Data_Out),
-            .Inst_In(MA_RW_Inst_Out),
+            //.Inst_In(MA_RW_Inst_Out),
             .Inst_Type_In(MA_RW_Inst_Type_Out),
+            .RD_Addr_In(MA_RW_RD_Addr_Out),
             //Outputs
             .Data_Out(RW_Data_Out),
             .Reg_Write_flag_Out(RW_Reg_Write_flag_Out),
-            .Dest_Reg_Addr_Out(RW_Dest_Reg_Addr_Out)
-            );               
+            .Dest_Reg_Addr_Out(RW_Dest_Reg_Addr_Out),
+            .RD_Addr_Out(WB_RD_Addr_Out)
+            );
+
+/*            
+    Forward_Unit forwarding_control(
+            //Inputs
+            .ID_RD_Addr_In(ID_RD_Addr_Out),
+			.EX_RD_Addr_In(EX_RD_Addr_Out),      
+			.MEM_RD_Addr_In(MA_RD_Addr_Out),
+			.WB_RD_Addr_In(WB_RD_Addr_Out),
+			.ID_RS1_Addr_In(ID_RS1_Data_Out),
+			.ID_RS2_Addr_In(ID_RS2_Data_Out),
+			.EX_Inst_Type_In(EX_Inst_Type_Out),
+			.EX_Result_In(EX_Result_Out),
+			.MA_Result_In(MA_Register_Data_Out),
+			.WB_Result_In(RW_Data_Out),
+			.clk(clk),
+			//Outputs
+			.Forward_RS1_Out(fwdA),
+			.Forward_RS2_Out(fwdB),
+			.stall_ctrl_out(stall_ctrl),
+			.Fwd_Result_Out(Forward_Unit_Result_Out)
+			 );
+			 
+*/
+			 
+    Forward_Unit forwarding_control(
+            //Inputs
+            .ID_RD_Addr_In(IF_DE_RD_Addr_out),
+			.EX_RD_Addr_In(ID_EX_RD_Addr_Out),      
+			.MEM_RD_Addr_In(EX_MA_RD_Addr_Out),
+			.WB_RD_Addr_In(MA_RW_RD_Addr_Out),
+			.ID_RS1_Addr_In(IF_DE_RS1_Addr_out),
+			.ID_RS2_Addr_In(IF_DE_RS2_Addr_out),
+			.EX_Inst_Type_In(ID_EX_Inst_Type_Out),
+			.EX_Result_In(EX_Result_Out),
+			.MA_Result_In(MA_Register_Data_Out),
+			.WB_Result_In(RW_Data_Out),
+			.clk(clk),
+			//Outputs
+			.Forward_RS1_Out(fwdA),
+			.Forward_RS2_Out(fwdB),
+			.stall_ctrl_out(stall_ctrl),
+			.Fwd_Result_Out(Forward_Unit_Result_Out)
+			 );               
 
 endmodule
