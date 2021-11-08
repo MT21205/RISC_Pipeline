@@ -75,7 +75,7 @@ module EX(
         isBranchTaken_Out <= 1'd0;
         Result_Out <= 32'dx;
         //Inst_Out <= 32'd0;
-        Operand_B_Out <= 32'dx;
+        Operand_B_Out <= 32'd0;
         Inst_Type_Out <= 5'dx;
         RD_Addr_Out <= 5'dx;
     end
