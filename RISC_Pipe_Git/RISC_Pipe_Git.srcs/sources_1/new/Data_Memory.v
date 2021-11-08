@@ -42,7 +42,7 @@ module Data_Memory(
     
     //wire[31:0] Inst_In;
     wire[4:0] Inst_Type_In;
-    wire[31:0] Store_Operand_B_In;
+    wire[31:0] Store_Operand_B_Data_In;
     wire[4:0] RD_Addr_In;
     
     // Ld_Str_Addr_Reg_Result_In can have either of the following data:
