@@ -293,7 +293,7 @@ module forwarding_Test_tb;
     initial
     begin
         #2
-        #120
+        #230
                         
         $finish;
     end
