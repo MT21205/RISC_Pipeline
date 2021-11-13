@@ -21,14 +21,13 @@
 
 
 module RW(
-            input Data_In,
-            //input Inst_In,
-            input Inst_Type_In,
-            input RD_Addr_In,
-            output Data_Out,
-            output Reg_Write_flag_Out,
-            output Dest_Reg_Addr_Out,
-            output RD_Addr_Out
+            input[31:0] Data_In,
+            input[4:0] Inst_Type_In,
+            input[4:0] RD_Addr_In,
+            output reg[31:0] Data_Out,
+            output reg Reg_Write_flag_Out,
+            output reg[4:0] Dest_Reg_Addr_Out,
+            output reg[4:0] RD_Addr_Out
             );
             
     // Based on the value in the Opcode i.e., Inst[6:2] -> 5bits
@@ -39,17 +38,7 @@ module RW(
     parameter BRANCH_TYPE = 5'b11000;
     parameter MAC_TYPE = 5'b11111;
     
-    wire[31:0] Data_In;
-    //wire[31:0] Inst_In;
-    wire[4:0] Inst_Type_In;
-    wire[4:0] RD_Addr_In;
-    
-    reg[31:0] Data_Out;
-    reg Reg_Write_flag_Out;
-    reg[4:0] Dest_Reg_Addr_Out;
-    reg[4:0] RD_Addr_Out;
-    
-    initial
+   initial
     begin
         Data_Out <= 32'dx;
         Reg_Write_flag_Out <= 32'dx;
@@ -60,7 +49,7 @@ module RW(
     always@(*)
     begin
         RD_Addr_Out <= RD_Addr_In;
-        Reg_Write_flag_Out <= 32'd0;
+        Reg_Write_flag_Out <= 1'd0;
         Dest_Reg_Addr_Out <= 5'd0;
         case(Inst_Type_In)
             IMMEDIATE_TYPE,

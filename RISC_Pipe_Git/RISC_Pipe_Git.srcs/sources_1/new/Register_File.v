@@ -20,26 +20,20 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Register_File(input Inst_In,
-          input Reg_Write_flag_In,
-          input RS1_Addr_In,
-          input RS2_Addr_In,
-          input RD_Addr_In,
-          input RD_Data_In,
-          output RS1_Data_Out,
-          output RS2_Data_Out
+module Register_File(
+                    input Reg_Write_flag_In,
+                    input[4:0] RS1_Addr_In,
+                    input[4:0] RS2_Addr_In,
+                    input[4:0] RD_Addr_In,
+                    input[31:0] RD_Data_In,
+                    output reg [31:0] RS1_Data_Out,
+                    output reg [31:0] RS2_Data_Out
                      );
                      
     parameter reg_cnt = 32; // RISCV 32I has 32 registers. 
     reg [31:0] register_memory [0:reg_cnt];
     integer i,out;
     integer reg_file_data;
-    reg [31:0]RS1_Data_Out, RS2_Data_Out;
-    
-    wire[4:0] RS1_Addr_In;
-    wire[4:0] RS2_Addr_In;
-    wire[4:0] RD_Addr_In;
-    wire[31:0] RD_Data_In;
     
     //Initialize the operands A and B
     initial

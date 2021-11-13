@@ -20,24 +20,21 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module IF(input in_Addr,
+module IF(input[31:0] in_Addr,
           input isBranchTaken,
           input clk,
           input stall_ctrl_in,
-          output Inst_Out 
+          output reg[31:0] Inst_Out 
     );
     
-    parameter Mem_Size = 18;
+    parameter Mem_Size = 1024;
+    
+    integer idx;
     
     //From the branch execute stage, the multiplexed BranchAddress or current PC address is sent as PC_In_Addr 
     reg[31:0] PC;
     //An Additional reg NPC is used only for notation and debug purpose
     reg[31:0] NPC;
-    reg[31:0] Inst_Out; 
-    wire isBranchTaken;
-    wire[31:0] in_Addr;
-    wire clk;
-    wire stall_ctrl_in;
     
     //Instruction Reg and Memory
     reg [31:0] Instruction;
@@ -54,26 +51,15 @@ module IF(input in_Addr,
         Inst_Out <= 32'dx;
     end
     
-    //Initialize Memory
-    /*
-    initial
-    begin
-        for(integer idx=0; idx < Mem_Size; idx = idx+1)
-        begin
-            Inst_memory[idx] <= 32'd0;
-        end
-    end
-    */
     
     //Read the contents of the Instruction Memory
-    //always@(posedge clk)
     initial 
     begin
         //$readmemb("./Instruction_Memory.txt", mem_read)
         //mem_read = $fopen("D:/College/IIITD/Others/Verilog_Lab/RISV_Pipe_Test/RISV_Pipe_Test.srcs/sources_1/new/Instruction_Memory.txt","r");
         mem_read = $fopen("Instruction_Memory.txt","r");
         //mem_read = $fopen("/Instruction_Memory.txt","r");
-        for (integer idx = 0; idx < Mem_Size; idx = idx+1)
+        for (idx = 0; idx < Mem_Size; idx = idx+1)
         begin
             $fscanf(mem_read,"%b\n",Inst_memory[idx]);
             //$display("%d",Inst_memory[idx]);
@@ -84,29 +70,24 @@ module IF(input in_Addr,
     //Instead it is included in IF stage itself to fetch the PC appropriately with the clk as the reference.
     always@(posedge clk)
     begin
-    /*
-        Inst_Out <= Inst_memory[PC];
-        
-        if(isBranchTaken == 1)
-            PC <= in_Addr;
-        else
-            PC <= PC+32'd1;
-    */
     if(stall_ctrl_in != 1'b1)
         begin
             PC = NPC;
             if(isBranchTaken == 1'd1)
             begin
-                PC = in_Addr;
-                Inst_Out = Inst_memory[PC];
+                PC = in_Addr*4;
+                Inst_Out = Inst_memory[PC>>2];
             end
             else
-                Inst_Out = Inst_memory[PC];
+                // As the PC is Byte addressable, and the instruction is 32-bits in size, the shift is carried out to access right instruction.
+                Inst_Out = Inst_memory[PC>>2];
             
-            NPC = PC + 32'd1;
+            NPC = PC + 32'd4;
         end
     else
         begin
+        // If a stall signal is recieved from the stall control unit, 
+        //The same previous instruction is being fetched in next cycle.
             PC = PC;
             NPC = NPC;
         end

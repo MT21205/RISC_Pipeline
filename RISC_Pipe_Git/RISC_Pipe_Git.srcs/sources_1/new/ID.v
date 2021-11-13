@@ -21,17 +21,14 @@
 
 
 module ID(
-            input Inst_In,
+            input[31:0] Inst_In,
             input stall_ctrl_in,
-            input RD_Addr_In,
+            input[4:0] RD_Addr_In,
             input clk,
-            //output Opcode_Type,
-            //output Operand_A,
-            //output Operand_B,
-            output Imm_Data_Out,
-            output Inst_Out,
-            output Inst_Type_Out,
-            output RD_Addr_Out 
+            output reg[31:0] Imm_Data_Out,
+            output reg[4:0] Inst_Type_Out,
+            output reg[9:0] Operation_Type_Out,
+            output reg[4:0] RD_Addr_Out 
             );
           
     // Based on the value in the Opcode i.e., Inst[6:2] -> 5bits
@@ -41,26 +38,12 @@ module ID(
     parameter STORE_TYPE = 5'b01000;
     parameter BRANCH_TYPE = 5'b11000;
     parameter MAC_TYPE = 5'b11111;
-          
-        
-    //reg[3:0] Opcode_Type;
-    //reg[31:0] Operand_A;
-    //reg[31:0] Operand_B;
-    reg[31:0] Imm_Data_Out;
-    reg[31:0] Inst_Out;
-    reg[4:0] Inst_Type_Out;
-    reg[4:0] RD_Addr_Out;
-    
-    wire[31:0] Inst_In;
-    wire[4:0] RD_Addr_In;
     
     initial
     begin
-        //Operand_A <= 32'd0;
-        //Operand_B <= 32'd0;
         Imm_Data_Out <= 32'dx;
-        Inst_Out <= 32'dx;
         RD_Addr_Out <= 5'dx;
+        Operation_Type_Out <= 10'dx;
     end
     
     always@(*)
@@ -69,13 +52,13 @@ module ID(
         begin
             Imm_Data_Out <= 32'dx;
             Inst_Type_Out <= 5'dx;
-            Inst_Out <= 32'dx;
             RD_Addr_Out <= 5'dx;
+            Operation_Type_Out <= 10'dx;
         end
         else
         begin
-        Inst_Out <= Inst_In;
         RD_Addr_Out <= RD_Addr_In;
+        
         //Sign Extending the Immediate Data
         case(Inst_In[6:2])
             IMMEDIATE_TYPE  : Imm_Data_Out <= {{20{Inst_In[31]}},{Inst_In[31:20]}};
@@ -88,6 +71,7 @@ module ID(
         endcase
         
         Inst_Type_Out <= Inst_In[6:2];
+        Operation_Type_Out <= {{Inst_In[31:25]},{Inst_In[14:12]}};
         end
     end
     

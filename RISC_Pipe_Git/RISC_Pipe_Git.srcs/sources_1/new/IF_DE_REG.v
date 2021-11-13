@@ -21,27 +21,17 @@
 
 
 module IF_DE_REG(input clk,
-                 input Inst_In,
+                 input[31:0] Inst_In,
                  input branch_kill_flag_In,
                  input stall_ctrl_in,
-                 output Inst_Out,
-                 output RS1_Addr_out,
-                 output RS2_Addr_out,
-                 output RD_Addr_out           
+                 output reg[31:0] Inst_Out,
+                 output reg[4:0] RS1_Addr_out,
+                 output reg[4:0] RS2_Addr_out,
+                 output reg[4:0] RD_Addr_out           
                     );
                     
     parameter IMMEDIATE_TYPE = 5'b00100;
     parameter LOAD_TYPE = 5'b00000;
-    
-    wire clk;
-    wire[31:0] Inst_In;
-    wire branch_kill_flag_In;
-    wire stall_ctrl_in;
-    
-    reg[31:0] Inst_Out;
-    reg[4:0] RS1_Addr_out;
-    reg[4:0] RS2_Addr_out;
-    reg[4:0] RD_Addr_out;
     
     initial
     begin
@@ -53,9 +43,8 @@ module IF_DE_REG(input clk,
     
     always@(posedge clk)
     begin
-        // If a branch is taken, then the instructions in the fetch and the decode stage should to be killed.
-        // Hence, these content aren't to be transmitte to the next stages.
-        // To achieve this, an xx is being sent to the next stages.
+        // If a stall signal is recieved from the stall control unit, 
+        //The same previous instruction is being fetched in next cycle.
         if(stall_ctrl_in == 1'b1)
         begin
             Inst_Out <= Inst_Out;
@@ -63,6 +52,10 @@ module IF_DE_REG(input clk,
             RS2_Addr_out <= RS2_Addr_out;
             RD_Addr_out <= RD_Addr_out;
         end 
+        
+        // If a branch is taken, then the instructions in the fetch and the decode stage should to be killed.
+        // Hence, these content aren't to be transmitted to the next stages.
+        // To achieve this, an xx is being sent to the next stages.
         else if(branch_kill_flag_In == 1'd1)
         begin
             Inst_Out <= 32'dx;
@@ -72,6 +65,10 @@ module IF_DE_REG(input clk,
         end
         else
         begin
+            //If a stall or branch doesn't occur, the current instruction is processed to read out
+            //  a) RS1_Addr
+            //  b) RS2_Addr
+            //  c) RD_Addr
             Inst_Out <= Inst_In;
             RS1_Addr_out <= Inst_In[19:15];
             

@@ -21,17 +21,26 @@
 
 
 module Data_Memory(
-                    //input Inst_In,
-                    input Inst_Type_In,
-                    input Store_Operand_B_Data_In,
-                    input Ld_Str_Addr_Reg_Result_In,
-                    input RD_Addr_In,
-                    output Register_Data_Out,
-                    output RD_Addr_Out,
-                    output Inst_Type_Out
+                    input[4:0] Inst_Type_In,
+                    input[31:0] Store_Operand_B_Data_In,
+                    
+                    // Ld_Str_Addr_Reg_Result_In can have either of the following data:
+                    // a) Address in memory from where the data to the register has to be loaded
+                    // b) Address in memory at which the data in register rs2 has to be stored
+                    // c) Rsult from the arithematic functions
+                    // d) Branch Address
+                    input[31:0] Ld_Str_Addr_Reg_Result_In,
+                    input[4:0] RD_Addr_In,
+                    
+                    // Register_Data_Out can have either of the information:
+                    // a) Data in the memory which has to be written to the destination register.
+                    // b) Arithematic Result from the execute stage to be written to the destination register.
+                    output reg[31:0] Register_Data_Out,
+                    output reg[4:0] RD_Addr_Out,
+                    output reg[4:0] Inst_Type_Out
                     );
 
-    parameter DATA_MEM_SIZE = 1024; // Memory of 1024 words.
+    parameter DATA_MEM_SIZE = 1024; // Memory of 1024*4 Bytes
     
     // Based on the value in the Opcode i.e., Inst[6:2] -> 5bits
     parameter LOAD_TYPE = 5'b00000;
@@ -39,27 +48,6 @@ module Data_Memory(
     
     integer mem_idx;
     integer mem_reader;
-    
-    //wire[31:0] Inst_In;
-    wire[4:0] Inst_Type_In;
-    wire[31:0] Store_Operand_B_Data_In;
-    wire[4:0] RD_Addr_In;
-    
-    // Ld_Str_Addr_Reg_Result_In can have either of the following data:
-    // a) Address in memory from where the data to the register has to be loaded
-    // b) Address in memory at which the data in register rs2 has to be stored
-    // c) Rsult from the arithematic functions
-    // d) Branch Address
-    
-    wire[31:0] Ld_Str_Addr_Reg_Result_In;
-    
-    // Register_Data_Out can have either of the information:
-    // a) Data in the memory which has to be written to the destination register.
-    // b) Arithematic Result from the execute stage to be written to the destination register.
-    
-    reg[31:0] Register_Data_Out;
-    reg[4:0] Inst_Type_Out;
-    reg[4:0] RD_Addr_Out;
     
     // Data Memory
     reg[31:0] Data_Memory[0:DATA_MEM_SIZE-1];

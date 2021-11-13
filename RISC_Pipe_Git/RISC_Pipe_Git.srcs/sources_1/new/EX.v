@@ -21,18 +21,22 @@
 
 
 module EX(
-            input Inst_In,
-            input Operand_A_val_In,
-            input Operand_B_val_In,
-            input Immx_Data_In,
-            input Inst_Type_In,
-            input RD_Addr_In,
-            output isBranchTaken_Out,
-            output Result_Out,
-            //output Inst_Out,
-            output Operand_B_Out,
-            output Inst_Type_Out,
-            output RD_Addr_Out
+            input[31:0] Operand_A_val_In,
+            input[31:0] Operand_B_val_In,
+            input[31:0] Immx_Data_In,
+            input[4:0] Inst_Type_In,
+            input[4:0] RD_Addr_In,
+            input[9:0] Operation_Type_In,
+            output reg isBranchTaken_Out,
+            
+            // Result_Out is a 32-bit value representing either of the following:
+            // a) Arithematic expression outcome
+            // b) Branch Address
+            // c) Address in Memory for load or Store
+            output reg[31:0] Result_Out,
+            output reg[31:0] Operand_B_Out,
+            output reg[4:0] Inst_Type_Out,
+            output reg[4:0] RD_Addr_Out
     );
     
     parameter IMMEDIATE_TYPE = 5'b00100;
@@ -51,30 +55,12 @@ module EX(
     parameter SUB = 10'b0100000000;
     parameter SLL = 10'b0000000001;
     parameter SRA = 10'b0100000101;
-    
-    wire[31:0] Inst_In;
-    wire[31:0] Operand_A_val_In;
-    wire[31:0] Operand_B_val_In;
-    wire[31:0] Immx_Data_In;
-    wire[4:0] Inst_Type_In;
-    wire[4:0] RD_Addr_In;
-    
-    reg isBranchTaken_Out;
-    // Result_Out is a 32-bit value representing either of the following:
-    // a) Arithematic expression outcome
-    // b) Branch Address
-    // c) Address in Memory for load or Store
-    reg[31:0] Result_Out;
-    //reg[31:0] Inst_Out;
-    reg[31:0] Operand_B_Out;
-    reg[4:0] Inst_Type_Out;
-    reg[4:0] RD_Addr_Out;
+      
     
     initial
     begin
         isBranchTaken_Out <= 1'd0;
         Result_Out <= 32'dx;
-        //Inst_Out <= 32'd0;
         Operand_B_Out <= 32'd0;
         Inst_Type_Out <= 5'dx;
         RD_Addr_Out <= 5'dx;
@@ -82,12 +68,12 @@ module EX(
     
     always@(*)
     begin
-        //Inst_Out <= Inst_In;
         Inst_Type_Out <= Inst_Type_In;
         RD_Addr_Out <= RD_Addr_In;
-        // The beanch taken flag is always initialized to zer0
+        
+        // The beanch taken flag is always initialized to zero
         // before processing any instruction.
-        // If the the branch will be taken in current execution,
+        // If the branch has to be taken in current execution,
         // then the flag is set in the Branch execution case.
         isBranchTaken_Out <= 1'd0;
         
@@ -104,7 +90,7 @@ module EX(
                     // funct7 -> Inst[31:25] 
                     // funct3 -> Inst[14:12]
                     
-                    case({{Inst_In[31:25]},{Inst_In[14:12]}})
+                    case(Operation_Type_In)
                         AND : Result_Out <= Operand_A_val_In & Operand_B_val_In;
                         OR  : Result_Out <= Operand_A_val_In | Operand_B_val_In;
                         ADD : Result_Out <= Operand_A_val_In + Operand_B_val_In;

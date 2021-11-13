@@ -21,37 +21,20 @@
 
 
 module EX_MA_reg(
-                //input isBranchTaken_Out,
                 input clk,
-                input Result_In,
-                //input Inst_In,
-                input Inst_Type_In,
-                input Operand_B_In,
-                input RD_Addr_In,
-                output Result_Out,
-                //output Inst_Out,
-                output Operand_B_Out,
-                output Inst_Type_Out,
-                output RD_Addr_Out
+                input[31:0] Result_In,
+                input[4:0] Inst_Type_In,
+                input[31:0] Operand_B_In,
+                input[4:0] RD_Addr_In,
+                output reg[31:0] Result_Out,
+                output reg[31:0] Operand_B_Out,
+                output reg[4:0] Inst_Type_Out,
+                output reg[4:0] RD_Addr_Out
     );
-    
-    wire[31:0] Result_In;
-    //wire[31:0] Inst_In;
-    wire[31:0] Operand_B_In;    
-    wire clk;
-    wire[4:0] Inst_Type_In;
-    wire[4:0] RD_Addr_In;
-    
-    reg[31:0] Result_Out;
-    //reg[31:0] Inst_Out;
-    reg[31:0] Operand_B_Out;
-    reg[4:0] Inst_Type_Out;
-    reg[4:0] RD_Addr_Out;
     
     initial
     begin
         Result_Out <= 32'dx;
-        //Inst_Out <= 32'd0;
         Operand_B_Out <= 32'dx;
         Inst_Type_Out <= 5'dx;
         RD_Addr_Out <= 5'dx;
@@ -60,7 +43,6 @@ module EX_MA_reg(
     always@(posedge clk)
     begin
         Result_Out <= Result_In;
-        //Inst_Out <= Inst_In;
         Operand_B_Out <= Operand_B_In;
         Inst_Type_Out <= Inst_Type_In;
         RD_Addr_Out <= RD_Addr_In;
