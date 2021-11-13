@@ -2,11 +2,11 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Mon Nov  8 11:11:50 2021
-# Process ID: 28808
+# Start of session at: Sat Nov 13 12:19:40 2021
+# Process ID: 29388
 # Current directory: D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.runs/synth_1
-# Command line: vivado.exe -log IF.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source IF.tcl
-# Log file: D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.runs/synth_1/IF.vds
+# Command line: vivado.exe -log RISC_pipe.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RISC_pipe.tcl
+# Log file: D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.runs/synth_1/RISC_pipe.vds
 # Journal file: D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source IF.tcl -notrace
+source RISC_pipe.tcl -notrace

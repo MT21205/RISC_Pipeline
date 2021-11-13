@@ -54,7 +54,8 @@ module RW(
         case(Inst_Type_In)
             IMMEDIATE_TYPE,
             REGISTER_REGISTER_TYPE,
-            LOAD_TYPE               :
+            LOAD_TYPE,               
+            MAC_TYPE                :
                 begin 
                     if(RD_Addr_In != 32'd0)
                     begin

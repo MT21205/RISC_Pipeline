@@ -83,7 +83,8 @@ module Data_Memory(
                     Register_Data_Out <= 32'd0;
                     Data_Memory[Ld_Str_Addr_Reg_Result_In] <= Store_Operand_B_Data_In;
                 end
-            // For the Immediate, Register-Register type, bypass the Arithematic incoming result to RW stage.
+            // For the Immediate, Register-Register type and MAC type instruction,
+            // bypass the Arithematic incoming result to RW stage.
             default     : Register_Data_Out <= Ld_Str_Addr_Reg_Result_In;
         endcase
     end

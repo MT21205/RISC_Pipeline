@@ -24,8 +24,6 @@ module forwarding_Test_tb;
 
 
     reg clk;
-    //wire[31:0] in_Addr;
-    //reg isBranchTaken;
     
     wire[31:0] IF_Inst_Out;
     wire[31:0] IF_DE_Inst_out;
@@ -33,10 +31,6 @@ module forwarding_Test_tb;
     wire[4:0] IF_DE_RS1_Addr_out;
     wire[4:0] IF_DE_RS2_Addr_out;
     wire[4:0] IF_DE_RD_Addr_out;
-    
-    //Inputs and nets for Register
-    //reg Reg_Write_flag_In;
-    //reg[31:0] RD_Data_In;
     
     wire[31:0] ID_RS1_Data_Out;
     wire[31:0] ID_RS2_Data_Out;
@@ -58,27 +52,23 @@ module forwarding_Test_tb;
     //Inputs and nets for EX Stage
     wire EX_isBranchTaken_Out;
     wire[31:0] EX_Result_Out;
-    //wire[31:0] EX_Inst_Out;
     wire[31:0] EX_Operand_B_Out;
     wire[4:0] EX_Inst_Type_Out;
     wire[4:0] EX_RD_Addr_Out;
     
     //Inputs and nets for EX_MA Register
     wire[31:0] EX_MA_Result_Out;
-    //wire[31:0] EX_MA_Inst_Out;
     wire[31:0] EX_MA_Operand_B_Out;
     wire[4:0] EX_MA_Inst_Type_Out;
     wire[4:0] EX_MA_RD_Addr_Out;
     
     //Inputs and nets for MA Stage
     wire[31:0] MA_Register_Data_Out;
-    //wire[31:0] MA_Inst_Out;
     wire[4:0] MA_RD_Addr_Out;
     wire[4:0] MA_Inst_Type_Out;
     
     //Inputs and nets for MA_RW Register
     wire[31:0] MA_RW_Data_Out;
-    //wire[31:0] MA_RW_Inst_Out;
     wire[4:0] MA_RW_Inst_Type_Out;
     wire[4:0] MA_RW_RD_Addr_Out;
     
@@ -171,6 +161,9 @@ module forwarding_Test_tb;
                 .Inst_Type_In(ID_EX_Inst_Type_Out),
                 .RD_Addr_In(ID_EX_RD_Addr_Out),
                 .Operation_Type_In(ID_EX_Operation_Type_Out),
+                .Temp_Reg_Data_In(RW_Data_Out),
+                .Temp_Reg_Addr_In(RW_Dest_Reg_Addr_Out),
+                .Temp_Reg_Write_flag_In(RW_Reg_Write_flag_Out),
                 //Outputs
                 .isBranchTaken_Out(EX_isBranchTaken_Out),
                 .Result_Out(EX_Result_Out),
@@ -260,7 +253,7 @@ module forwarding_Test_tb;
     initial
     begin
         #2
-        #230
+        #240
                         
         $finish;
     end

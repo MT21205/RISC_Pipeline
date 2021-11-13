@@ -31,7 +31,7 @@ module Register_File(
                      );
                      
     parameter reg_cnt = 32; // RISCV 32I has 32 registers. 
-    reg [31:0] register_memory [0:reg_cnt];
+    reg [31:0] register_memory [0:reg_cnt-1];
     integer i,out;
     integer reg_file_data;
     
@@ -46,7 +46,7 @@ module Register_File(
     begin
         //out = $fopen("D:/College/IIITD/Others/Verilog_Lab/RISV_Pipe_Test/RISV_Pipe_Test.srcs/sources_1/new/Register_Memory.txt","r");
         out = $fopen("Register_Memory.txt","r");
-        for (i = 0; i < reg_cnt+1; i = i + 1)
+        for (i = 0; i < reg_cnt; i = i + 1)
         begin
             //Reading the contents of the register
             $fscanf(out,"%b\n",register_memory[i]); 
