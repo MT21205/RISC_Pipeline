@@ -32,6 +32,7 @@ module RISC_pipe(input clk
     
     wire[31:0] ID_RS1_Data_Out;
     wire[31:0] ID_RS2_Data_Out;
+    wire[31:0] ID_RD_Data_Out;
     
     //Inputs and nets for ID stage
     wire[31:0] ID_Imm_out;
@@ -42,6 +43,7 @@ module RISC_pipe(input clk
     //Inputs and nets for ID_EX Register
     wire[31:0] ID_EX_A_out;
     wire[31:0] ID_EX_B_out;
+    wire[31:0] ID_EX_RD_Data_Out;
     wire[31:0] ID_EX_Imm_Out;
     wire[4:0] ID_EX_Inst_Type_Out;
     wire[4:0] ID_EX_RD_Addr_Out;
@@ -112,10 +114,12 @@ module RISC_pipe(input clk
                             .RS1_Addr_In(IF_DE_RS1_Addr_out),
                             .RS2_Addr_In(IF_DE_RS2_Addr_out),
                             .RD_Addr_In(RW_Dest_Reg_Addr_Out),
+                            .ID_RD_Addr_In(IF_DE_RD_Addr_out),
                             .RD_Data_In(RW_Data_Out),
                             //Outputs
                             .RS1_Data_Out(ID_RS1_Data_Out),
-                            .RS2_Data_Out(ID_RS2_Data_Out)
+                            .RS2_Data_Out(ID_RS2_Data_Out),
+                            .RD_Data_Out(ID_RD_Data_Out)
                             );
     ID Instruction_Decode(
                             //Inputs
@@ -134,6 +138,7 @@ module RISC_pipe(input clk
                             .clk(clk),
                             .Operand_A_val_In(ID_RS1_Data_Out),
                             .Operand_B_val_In(ID_RS2_Data_Out),
+                            .RD_Data_In(ID_RD_Data_Out),
                             .Immx_Data_In(ID_Imm_out),
                             .Inst_Type_In(ID_Inst_Type_out),
                             .branch_kill_flag_In(EX_isBranchTaken_Out),
@@ -145,6 +150,7 @@ module RISC_pipe(input clk
                             //outputs
                             .Operand_A_val_Out(ID_EX_A_out),
                             .Operand_B_val_Out(ID_EX_B_out),
+                            .RD_Data_Out(ID_EX_RD_Data_Out),
                             .Immx_Data_Out(ID_EX_Imm_Out),
                             .Inst_Type_Out(ID_EX_Inst_Type_Out),
                             .Operation_Type_Out(ID_EX_Operation_Type_Out),
@@ -155,13 +161,11 @@ module RISC_pipe(input clk
                 //Inputs
                 .Operand_A_val_In(ID_EX_A_out),
                 .Operand_B_val_In(ID_EX_B_out),
+                .RD_Data_In(ID_EX_RD_Data_Out),
                 .Immx_Data_In(ID_EX_Imm_Out),
                 .Inst_Type_In(ID_EX_Inst_Type_Out),
                 .RD_Addr_In(ID_EX_RD_Addr_Out),
                 .Operation_Type_In(ID_EX_Operation_Type_Out),
-                .Temp_Reg_Data_In(RW_Data_Out),
-                .Temp_Reg_Addr_In(RW_Dest_Reg_Addr_Out),
-                .Temp_Reg_Write_flag_In(RW_Reg_Write_flag_Out),
                 //Outputs
                 .isBranchTaken_Out(EX_isBranchTaken_Out),
                 .Result_Out(EX_Result_Out),
@@ -238,6 +242,7 @@ module RISC_pipe(input clk
 			.Forward_RS2_Out(fwdB),
 			.stall_ctrl_out(stall_ctrl),
 			.Fwd_Result_Out(Forward_Unit_Result_Out)
-			 );              
+			 );
+                 
 
 endmodule

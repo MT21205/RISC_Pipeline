@@ -23,13 +23,11 @@
 module EX(
             input[31:0] Operand_A_val_In,
             input[31:0] Operand_B_val_In,
+            input[31:0] RD_Data_In,
             input[31:0] Immx_Data_In,
             input[4:0] Inst_Type_In,
             input[4:0] RD_Addr_In,
             input[9:0] Operation_Type_In,
-            input[31:0] Temp_Reg_Data_In,
-            input[4:0] Temp_Reg_Addr_In,
-            input Temp_Reg_Write_flag_In,
             
             output reg isBranchTaken_Out,
             // Result_Out is a 32-bit value representing either of the following:
@@ -75,19 +73,7 @@ module EX(
         RD_Addr_Out <= 5'dx;
     end
     
-    initial
-    begin
-        //out = $fopen("D:/College/IIITD/Others/Verilog_Lab/RISV_Pipe_Test/RISV_Pipe_Test.srcs/sources_1/new/Register_Memory.txt","r");
-        out = $fopen("Register_Memory.txt","r");
-        for (i = 0; i < REG_CNT; i = i + 1)
-        begin
-            //Reading the contents of the register
-            $fscanf(out,"%b\n",Temp_EX_Reg_Mem[i]); 
-        end
-        
-    end
-    
-    always@(Operand_A_val_In or Operand_B_val_In or Immx_Data_In or Inst_Type_In or RD_Addr_In or Operation_Type_In)
+    always@(Operand_A_val_In or Operand_B_val_In or RD_Data_In or Immx_Data_In or Inst_Type_In or RD_Addr_In or Operation_Type_In)
     begin
         Inst_Type_Out <= Inst_Type_In;
         RD_Addr_Out <= RD_Addr_In;
@@ -163,7 +149,7 @@ module EX(
                 
             MAC_TYPE :
                 begin
-                    Result_Out <= Temp_EX_Reg_Mem[RD_Addr_In] + (Operand_A_val_In * Operand_B_val_In);
+                    Result_Out <= RD_Data_In + (Operand_A_val_In * Operand_B_val_In);
                 end
                 
             default :
@@ -174,20 +160,5 @@ module EX(
                        
         endcase
     end
-    
-  
-    always@(Temp_Reg_Data_In or Temp_Reg_Addr_In or Temp_Reg_Write_flag_In)
-    begin
-        if(Temp_Reg_Write_flag_In)
-            Temp_EX_Reg_Mem[Temp_Reg_Addr_In] <= Temp_Reg_Data_In;
-        else
-            Temp_EX_Reg_Mem[0] <= 32'd0;
-        
-        if((Inst_Type_In == MAC_TYPE) && (Temp_Reg_Addr_In == RD_Addr_In))
-            Result_Out <= Temp_Reg_Data_In + (Operand_A_val_In * Operand_B_val_In);
-        else
-            Result_Out <= Result_Out;
-    end  
-
     
 endmodule

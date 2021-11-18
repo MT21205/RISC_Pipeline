@@ -75,7 +75,7 @@ module IF(input[31:0] in_Addr,
             PC = NPC;
             if(isBranchTaken == 1'd1)
             begin
-                PC = in_Addr*4;
+                PC = in_Addr;
                 Inst_Out = Inst_memory[PC>>2];
             end
             else
