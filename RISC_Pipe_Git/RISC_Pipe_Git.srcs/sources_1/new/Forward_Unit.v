@@ -32,10 +32,10 @@ module Forward_Unit(
 			input [31:0] MA_Result_In,
 			input [31:0] WB_Result_In,
 			input clk,
-			output reg Forward_RS1_Out,
-			output reg Forward_RS2_Out,
+			output reg [1:0] Forward_RS_Flag_Out,
 			output reg stall_ctrl_out,
-			output reg [31:0] Fwd_Result_Out
+			output reg [31:0] Fwd_RS1_Result_Out,
+			output reg [31:0] Fwd_RS2_Result_Out
 			);  
 
 
@@ -50,10 +50,10 @@ module Forward_Unit(
         
     initial
     begin
-        Forward_RS1_Out <= 0;
-		Forward_RS2_Out <= 0;
+        Forward_RS_Flag_Out <= 2'd0;
 		stall_ctrl_out <= 0;
-		Fwd_Result_Out <= 0;
+		Fwd_RS1_Result_Out <= 32'd0;
+		Fwd_RS2_Result_Out <= 32'd0;
     end
 
 	always@(negedge clk)
@@ -72,49 +72,44 @@ module Forward_Unit(
       // Decode_Execute stage data dependancy
         if(EX_RD_Addr_In == ID_RS1_Addr_In)
         begin
-            Fwd_Result_Out <= EX_Result_In;
-            Forward_RS1_Out <= 1'b1;
-            Forward_RS2_Out <= 1'b0;
+            Fwd_RS1_Result_Out <= EX_Result_In;
+            Forward_RS_Flag_Out[0] <= 1'b1;
         end
-        else if(EX_RD_Addr_In == ID_RS2_Addr_In)
+        else if(MEM_RD_Addr_In == ID_RS1_Addr_In)
         begin
-            Fwd_Result_Out <= EX_Result_In;
-            Forward_RS1_Out <= 1'b0;
-            Forward_RS2_Out <= 1'b1;
+            Fwd_RS1_Result_Out <= MA_Result_In;
+            Forward_RS_Flag_Out[0] <= 1'b1;
+        end
+        else if(WB_RD_Addr_In == ID_RS1_Addr_In)
+        begin
+            Fwd_RS1_Result_Out <= WB_Result_In;
+            Forward_RS_Flag_Out[0] <= 1'b1;
+        end
+        else
+            Forward_RS_Flag_Out[0] <= 1'b0;
+        
+        if(EX_RD_Addr_In == ID_RS2_Addr_In)
+        begin
+            Fwd_RS2_Result_Out <= EX_Result_In;
+            Forward_RS_Flag_Out[1] <= 1'b1;
         end
         
         // Decode_Memory stage data dependancy
-        else if(MEM_RD_Addr_In == ID_RS1_Addr_In)
-        begin
-            Fwd_Result_Out <= MA_Result_In;
-            Forward_RS1_Out <= 1'b1;
-            Forward_RS2_Out <= 1'b0;
-        end
         else if(MEM_RD_Addr_In == ID_RS2_Addr_In)
         begin
-            Fwd_Result_Out = MA_Result_In;
-            Forward_RS1_Out <= 1'b0;
-            Forward_RS2_Out <= 1'b1;
+            Fwd_RS2_Result_Out = MA_Result_In;
+            Forward_RS_Flag_Out[1] <= 1'b1;
         end
         
         // WriteBack_Memory stage data dependancy
-        else if(WB_RD_Addr_In == ID_RS1_Addr_In)
-        begin
-            Fwd_Result_Out <= WB_Result_In;
-            Forward_RS1_Out <= 1'b1;
-            Forward_RS2_Out <= 1'b0;
-        end
+        
         else if(WB_RD_Addr_In == ID_RS2_Addr_In)
         begin
-            Fwd_Result_Out <= WB_Result_In;
-            Forward_RS1_Out <= 1'b0;
-            Forward_RS2_Out <= 1'b1;
+            Fwd_RS2_Result_Out <= WB_Result_In;
+            Forward_RS_Flag_Out[1] <= 1'b1;
         end
         else
-        begin
-            Forward_RS1_Out <= 1'b0;
-            Forward_RS2_Out <= 1'b0;
-        end
+            Forward_RS_Flag_Out[1] <= 1'b0;
       end
     end
 endmodule

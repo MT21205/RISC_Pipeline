@@ -28,9 +28,9 @@ module ID_EX_reg(input clk,
                  input[4:0] Inst_Type_In,
                  input branch_kill_flag_In,
                  input[4:0] RD_Addr_In,
-                 input RS1_Fwd_Flag_In,
-                 input RS2_Fwd_Flag_In,
-                 input[31:0] RS1_RS2_Fwd_Data_In,
+                 input[1:0] Fwd_Flag_In,
+                 input[31:0] RS1_Fwd_Data_In,
+                 input[31:0] RS2_Fwd_Data_In,
                  input[9:0] Operation_Type_In,
                  output reg[31:0] Operand_A_val_Out,
                  output reg[31:0] Operand_B_val_Out,
@@ -73,12 +73,12 @@ module ID_EX_reg(input clk,
         begin
             //Inst_Out <= Inst_In;
             RD_Data_Out <= RD_Data_In;
-            if(RS1_Fwd_Flag_In == 1'b1)
-                Operand_A_val_Out <= RS1_RS2_Fwd_Data_In;
+            if(Fwd_Flag_In[0] == 1'b1)
+                Operand_A_val_Out <= RS1_Fwd_Data_In;
             else
                 Operand_A_val_Out <= Operand_A_val_In;
-            if(RS2_Fwd_Flag_In == 1'b1)
-                Operand_B_val_Out <= RS1_RS2_Fwd_Data_In;
+            if(Fwd_Flag_In[1] == 1'b1)
+                Operand_B_val_Out <= RS2_Fwd_Data_In;
             else
                 Operand_B_val_Out <= Operand_B_val_In;
             Immx_Data_Out <= Immx_Data_In;
