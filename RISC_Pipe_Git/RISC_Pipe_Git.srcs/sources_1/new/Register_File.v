@@ -81,10 +81,10 @@ module Register_File(
            
         reg_file_data = $fopen("Updated_Reg_Mem.txt","w");
         
-        
-        for (i = 0; i < reg_cnt+1; i = i + 1)
+        $fdisplay(reg_file_data,"Register File dump:");
+        for (i = 0; i < reg_cnt; i = i + 1)
         begin
-            $fdisplay(reg_file_data,"%b",register_memory[i]); 
+            $fdisplay(reg_file_data,"R[%2d] = 0x%8h",i,register_memory[i]); 
         end
         
         $fclose(reg_file_data);

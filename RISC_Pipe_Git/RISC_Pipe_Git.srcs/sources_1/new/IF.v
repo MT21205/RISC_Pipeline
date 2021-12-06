@@ -75,7 +75,10 @@ module IF(input[31:0] in_Addr,
             PC = NPC;
             if(isBranchTaken == 1'd1)
             begin
+                // The Byte Address is available in the in_Addr
                 PC = in_Addr;
+                
+                // Accessing the Instruction from the memory after converting the Byte Address to Word Address
                 Inst_Out = Inst_memory[PC>>2];
             end
             else

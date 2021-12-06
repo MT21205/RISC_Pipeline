@@ -81,9 +81,9 @@ module RISC_pipe(input clk
     
     //Outputs of Forward Unit
     wire stall_ctrl;
-    wire fwdA;
-    wire fwdB;
-    wire[31:0] Forward_Unit_Result_Out;
+    wire[1:0] FW_RS_Flag_fwd_out;
+    wire[31:0] FW_RS1_Result_Out;
+    wire[31:0] FW_RS2_Result_Out;
     
     
     IF Instruction_Fetch (
@@ -143,9 +143,9 @@ module RISC_pipe(input clk
                             .Inst_Type_In(ID_Inst_Type_out),
                             .branch_kill_flag_In(EX_isBranchTaken_Out),
                             .RD_Addr_In(ID_RD_Addr_Out),
-                            .RS1_Fwd_Flag_In(fwdA),
-                            .RS2_Fwd_Flag_In(fwdB),
-                            .RS1_RS2_Fwd_Data_In(Forward_Unit_Result_Out),
+                            .Fwd_Flag_In(FW_RS_Flag_fwd_out),
+                            .RS1_Fwd_Data_In(FW_RS1_Result_Out),
+                            .RS2_Fwd_Data_In(FW_RS2_Result_Out),
                             .Operation_Type_In(ID_Operation_Type_Out),
                             //outputs
                             .Operand_A_val_Out(ID_EX_A_out),
@@ -238,10 +238,10 @@ module RISC_pipe(input clk
 			.WB_Result_In(RW_Data_Out),
 			.clk(clk),
 			//Outputs
-			.Forward_RS1_Out(fwdA),
-			.Forward_RS2_Out(fwdB),
+			.Forward_RS_Flag_Out(FW_RS_Flag_fwd_out),
 			.stall_ctrl_out(stall_ctrl),
-			.Fwd_Result_Out(Forward_Unit_Result_Out)
+			.Fwd_RS1_Result_Out(FW_RS1_Result_Out),
+			.Fwd_RS2_Result_Out(FW_RS2_Result_Out)
 			 );
                  
 
