@@ -57,14 +57,16 @@ module Register_File(
         
     end
     
-    always@(RS1_Addr_In or RS2_Addr_In or RD_Addr_In)
+    always@(RS1_Addr_In or RS2_Addr_In)
     begin
             
         RS1_Data_Out <= register_memory[RS1_Addr_In];
         RS2_Data_Out <= register_memory[RS2_Addr_In];
+    end
+    
+    always@(RD_Addr_In)
+    begin
         RD_Data_Out <= register_memory[ID_RD_Addr_In];
-        
-        
     end
     
     always@(Reg_Write_flag_In or RD_Addr_In or RD_Data_In)

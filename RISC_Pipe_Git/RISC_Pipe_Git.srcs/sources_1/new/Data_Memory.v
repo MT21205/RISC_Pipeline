@@ -80,14 +80,14 @@ module Data_Memory(
             LOAD_TYPE   :
                 begin
                     if(Ld_Str_Addr_Reg_Result_In % 4 == 32'd0) 
-                        Register_Data_Out <= Data_Memory[Ld_Str_Addr_Reg_Result_In << 2'd2];
+                        Register_Data_Out <= Data_Memory[Ld_Str_Addr_Reg_Result_In >> 2'd2];
                     else
                         Register_Data_Out <= 32'dx;
                 end
             STORE_TYPE  : 
                 begin
                     Register_Data_Out <= 32'd0;
-                    Data_Memory[Ld_Str_Addr_Reg_Result_In << 2'd2] <= Store_Operand_B_Data_In;
+                    Data_Memory[Ld_Str_Addr_Reg_Result_In >> 2'd2] <= Store_Operand_B_Data_In;
                 end
             // For the Immediate, Register-Register type and MAC type instruction,
             // bypass the Arithematic incoming result to RW stage.
