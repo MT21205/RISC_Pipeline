@@ -14,9 +14,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 15312 
+INFO: Helper process launched with PID 6112 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 490.445 ; gain = 187.871
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 490.316 ; gain = 188.191
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'RISC_pipe' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/RISC_pipe.v:23]
 INFO: [Synth 8-6157] synthesizing module 'IF' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/IF.v:23]
@@ -138,8 +138,9 @@ INFO: [Synth 8-6157] synthesizing module 'Register_File' [D:/College/IIITD/Other
 	Parameter reg_cnt bound to: 32 - type: integer 
 WARNING: [Synth 8-639] system function call 'fopen' not supported [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:51]
 WARNING: [Synth 8-567] referenced signal 'register_memory' should be on the sensitivity list [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:60]
-WARNING: [Synth 8-567] referenced signal 'ID_RD_Addr_In' should be on the sensitivity list [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:60]
-WARNING: [Synth 8-639] system function call 'fopen' not supported [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:82]
+WARNING: [Synth 8-567] referenced signal 'register_memory' should be on the sensitivity list [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:67]
+WARNING: [Synth 8-567] referenced signal 'ID_RD_Addr_In' should be on the sensitivity list [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:67]
+WARNING: [Synth 8-639] system function call 'fopen' not supported [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:84]
 INFO: [Synth 8-6155] done synthesizing module 'Register_File' (3#1) [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:23]
 INFO: [Synth 8-6157] synthesizing module 'ID' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/ID.v:23]
 	Parameter IMMEDIATE_TYPE bound to: 5'b00100 
@@ -208,124 +209,124 @@ WARNING: [Synth 8-3331] design ID has unconnected port Inst_In[0]
 WARNING: [Synth 8-3331] design ID has unconnected port stall_ctrl_in
 WARNING: [Synth 8-3331] design ID has unconnected port clk
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 626.246 ; gain = 323.672
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 626.906 ; gain = 324.781
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 626.246 ; gain = 323.672
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 626.906 ; gain = 324.781
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 626.246 ; gain = 323.672
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 626.906 ; gain = 324.781
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/EX.v:100]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/EX.v:87]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[0]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[1]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[2]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[3]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[4]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[5]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[6]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[7]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[8]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[9]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[10]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[11]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[12]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[13]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[14]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[15]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[16]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[17]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[18]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[19]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[20]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[21]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[22]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[23]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[24]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[25]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[26]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[27]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[28]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[29]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[30]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[31]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:75]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[0]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[1]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[2]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[3]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[4]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[5]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[6]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[7]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[8]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[9]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[10]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[11]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[12]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[13]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[14]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[15]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[16]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[17]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[18]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[19]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[20]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[21]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[22]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[23]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[24]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[25]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[26]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[27]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[28]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[29]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[30]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'register_memory_reg[31]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Register_File.v:77]
 WARNING: [Synth 8-327] inferring latch for variable 'Operand_B_Out_reg' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/EX.v:133]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[0]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[1]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[2]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[3]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[4]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[5]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[6]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[7]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[8]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[9]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[10]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[11]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[12]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[13]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[14]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[15]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[16]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[17]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[18]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[19]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[20]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[21]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[22]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[23]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[24]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[25]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[26]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[27]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[28]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[29]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[30]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[31]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[32]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[33]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[34]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[35]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[36]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[37]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[38]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[39]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[40]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[41]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[42]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[43]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[44]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[45]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[46]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[47]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[48]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[49]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[50]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[51]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[52]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[53]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[54]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[55]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[56]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[57]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[58]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[59]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[60]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[61]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[62]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[63]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[64]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[65]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[66]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:80]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[0]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[1]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[2]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[3]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[4]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[5]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[6]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[7]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[8]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[9]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[10]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[11]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[12]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[13]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[14]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[15]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[16]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[17]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[18]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[19]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[20]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[21]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[22]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[23]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[24]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[25]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[26]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[27]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[28]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[29]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[30]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[31]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[32]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[33]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[34]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[35]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[36]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[37]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[38]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[39]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[40]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[41]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[42]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[43]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[44]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[45]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[46]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[47]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[48]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[49]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[50]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[51]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[52]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[53]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[54]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[55]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[56]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[57]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[58]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[59]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[60]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[61]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[62]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[63]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[64]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[65]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'Data_Memory_reg[66]' [D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.srcs/sources_1/new/Data_Memory.v:83]
 INFO: [Common 17-14] Message 'Synth 8-327' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:16 . Memory (MB): peak = 800.457 ; gain = 497.883
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:16 . Memory (MB): peak = 801.824 ; gain = 499.699
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -333,11 +334,11 @@ Report RTL Partitions:
 |      |RTL Partition           |Replication |Instances |
 +------+------------------------+------------+----------+
 |1     |muxpart__12_Data_Memory |           1|     32736|
-|2     |Data_Memory__GB1        |           1|      2624|
-|3     |Data_Memory__GB2        |           1|     10921|
-|4     |Data_Memory__GB3        |           1|     12832|
-|5     |Data_Memory__GB4        |           1|     19990|
-|6     |Data_Memory__GB5        |           1|     28545|
+|2     |Data_Memory__GB1        |           1|      2464|
+|3     |Data_Memory__GB2        |           1|     10162|
+|4     |Data_Memory__GB3        |           1|     12384|
+|5     |Data_Memory__GB4        |           1|     18883|
+|6     |Data_Memory__GB5        |           1|     28971|
 |7     |IF                      |           1|     32939|
 |8     |RISC_pipe__GCB1         |           1|      7265|
 +------+------------------------+------------+----------+
@@ -550,7 +551,7 @@ INFO: [Synth 8-3886] merging instance 'Inst_Out_reg[29]' (FDE) to 'Inst_Out_reg[
 INFO: [Synth 8-3886] merging instance 'Inst_Out_reg[30]' (FDE) to 'Inst_Out_reg[31]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Inst_Out_reg[31] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:01:01 . Memory (MB): peak = 880.441 ; gain = 577.867
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:01:00 . Memory (MB): peak = 880.727 ; gain = 578.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -576,11 +577,11 @@ Report RTL Partitions:
 |      |RTL Partition           |Replication |Instances |
 +------+------------------------+------------+----------+
 |1     |muxpart__12_Data_Memory |           1|     32736|
-|2     |Data_Memory__GB1        |           1|      2624|
-|3     |Data_Memory__GB2        |           1|      6709|
-|4     |Data_Memory__GB3        |           1|     12832|
-|5     |Data_Memory__GB4        |           1|      7352|
-|6     |Data_Memory__GB5        |           1|      7139|
+|2     |Data_Memory__GB1        |           1|      2464|
+|3     |Data_Memory__GB2        |           1|      7430|
+|4     |Data_Memory__GB3        |           1|     12384|
+|5     |Data_Memory__GB4        |           1|      8505|
+|6     |Data_Memory__GB5        |           1|      6170|
 |7     |IF                      |           1|         0|
 |8     |RISC_pipe__GCB1         |           1|      6874|
 +------+------------------------+------------+----------+
@@ -589,7 +590,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:48 ; elapsed = 00:01:02 . Memory (MB): peak = 880.441 ; gain = 577.867
+Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:01:01 . Memory (MB): peak = 880.727 ; gain = 578.602
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -597,18 +598,18 @@ Report RTL Partitions:
 |      |RTL Partition           |Replication |Instances |
 +------+------------------------+------------+----------+
 |1     |muxpart__12_Data_Memory |           1|     32736|
-|2     |Data_Memory__GB1        |           1|      2624|
-|3     |Data_Memory__GB2        |           1|      6709|
-|4     |Data_Memory__GB3        |           1|     12832|
-|5     |Data_Memory__GB4        |           1|      7352|
-|6     |Data_Memory__GB5        |           1|      7139|
+|2     |Data_Memory__GB1        |           1|      2464|
+|3     |Data_Memory__GB2        |           1|      7430|
+|4     |Data_Memory__GB3        |           1|     12384|
+|5     |Data_Memory__GB4        |           1|      8505|
+|6     |Data_Memory__GB5        |           1|      6170|
 |7     |RISC_pipe__GCB1         |           1|      6874|
 +------+------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:52 ; elapsed = 00:01:06 . Memory (MB): peak = 880.441 ; gain = 577.867
+Finished Technology Mapping : Time (s): cpu = 00:00:51 ; elapsed = 00:01:05 . Memory (MB): peak = 880.727 ; gain = 578.602
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -616,11 +617,11 @@ Report RTL Partitions:
 |      |RTL Partition           |Replication |Instances |
 +------+------------------------+------------+----------+
 |1     |muxpart__12_Data_Memory |           1|     15264|
-|2     |Data_Memory__GB1        |           1|      2624|
-|3     |Data_Memory__GB2        |           1|      6462|
-|4     |Data_Memory__GB3        |           1|     12832|
-|5     |Data_Memory__GB4        |           1|      7284|
-|6     |Data_Memory__GB5        |           1|      5109|
+|2     |Data_Memory__GB1        |           1|      2464|
+|3     |Data_Memory__GB2        |           1|      7292|
+|4     |Data_Memory__GB3        |           1|     12384|
+|5     |Data_Memory__GB4        |           1|      8178|
+|6     |Data_Memory__GB5        |           1|      3958|
 |7     |RISC_pipe__GCB1         |           1|      3534|
 +------+------------------------+------------+----------+
 ---------------------------------------------------------------------------------
@@ -635,112 +636,112 @@ Finished Flattening Before IO Insertion
 ---------------------------------------------------------------------------------
 Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][31]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][30]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][29]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][28]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][27]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][26]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][25]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][24]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][23]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][22]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][21]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][20]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][19]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][18]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][17]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][16]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][15]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][14]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][13]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][12]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][11]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][10]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][9]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][8]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][7]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][6]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][5]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][4]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][3]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][2]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][1]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[663][0]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][31]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][30]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][29]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][28]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][27]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][26]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][25]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][24]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][23]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][22]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][21]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][20]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][19]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][18]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][17]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][16]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][15]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][14]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][13]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][12]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][11]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][10]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][9]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][8]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][7]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][6]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][5]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][4]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][3]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][2]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][1]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[662][0]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][31]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][30]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][29]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][28]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][27]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][26]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][25]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][24]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][23]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][22]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][21]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][20]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][19]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][18]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][17]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][16]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][15]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][14]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][13]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][12]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][11]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][10]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][9]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][8]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][7]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][6]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][5]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][4]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][3]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][2]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][1]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[661][0]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[590][31]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[590][30]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[590][29]) is unused and will be removed from module RISC_pipe.
-WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[590][28]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][31]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][30]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][29]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][28]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][27]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][26]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][25]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][24]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][23]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][22]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][21]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][20]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][19]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][18]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][17]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][16]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][15]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][14]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][13]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][12]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][11]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][10]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][9]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][8]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][7]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][6]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][5]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][4]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][3]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][2]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][1]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[645][0]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][31]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][30]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][29]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][28]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][27]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][26]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][25]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][24]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][23]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][22]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][21]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][20]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][19]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][18]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][17]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][16]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][15]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][14]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][13]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][12]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][11]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][10]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][9]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][8]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][7]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][6]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][5]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][4]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][3]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][2]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][1]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[646][0]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][31]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][30]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][29]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][28]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][27]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][26]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][25]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][24]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][23]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][22]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][21]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][20]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][19]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][18]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][17]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][16]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][15]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][14]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][13]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][12]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][11]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][10]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][9]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][8]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][7]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][6]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][5]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][4]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][3]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][2]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][1]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[644][0]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[647][31]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[647][30]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[647][29]) is unused and will be removed from module RISC_pipe.
+WARNING: [Synth 8-3332] Sequential element (MA_Stage/Data_Memory_reg[647][28]) is unused and will be removed from module RISC_pipe.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 880.441 ; gain = 577.867
+Finished IO Insertion : Time (s): cpu = 00:00:56 ; elapsed = 00:01:10 . Memory (MB): peak = 880.727 ; gain = 578.602
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -753,7 +754,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 880.441 ; gain = 577.867
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:56 ; elapsed = 00:01:10 . Memory (MB): peak = 880.727 ; gain = 578.602
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -765,25 +766,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 880.441 ; gain = 577.867
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:56 ; elapsed = 00:01:10 . Memory (MB): peak = 880.727 ; gain = 578.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 880.441 ; gain = 577.867
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:56 ; elapsed = 00:01:10 . Memory (MB): peak = 880.727 ; gain = 578.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 880.441 ; gain = 577.867
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:56 ; elapsed = 00:01:10 . Memory (MB): peak = 880.727 ; gain = 578.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 880.441 ; gain = 577.867
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:56 ; elapsed = 00:01:10 . Memory (MB): peak = 880.727 ; gain = 578.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -808,25 +809,25 @@ Report Instance Areas:
 |1     |top      |       |     0|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 880.441 ; gain = 577.867
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:56 ; elapsed = 00:01:10 . Memory (MB): peak = 880.727 ; gain = 578.602
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 35959 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:57 ; elapsed = 00:01:12 . Memory (MB): peak = 880.441 ; gain = 577.867
-Synthesis Optimization Complete : Time (s): cpu = 00:00:57 ; elapsed = 00:01:12 . Memory (MB): peak = 880.441 ; gain = 577.867
+Synthesis finished with 0 errors, 0 critical warnings and 35960 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:56 ; elapsed = 00:01:11 . Memory (MB): peak = 880.727 ; gain = 578.602
+Synthesis Optimization Complete : Time (s): cpu = 00:00:56 ; elapsed = 00:01:11 . Memory (MB): peak = 880.727 ; gain = 578.602
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 880.441 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 880.727 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-100 Infos, 321 Warnings, 0 Critical Warnings and 0 Errors encountered.
+100 Infos, 322 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:01 ; elapsed = 00:01:18 . Memory (MB): peak = 880.441 ; gain = 579.180
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 880.441 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:01 ; elapsed = 00:01:16 . Memory (MB): peak = 880.727 ; gain = 589.852
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 880.727 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/College/IIITD/Others/CA_Proj_Git_Bkp/RISC_Pipeline/RISC_Pipe_Git/RISC_Pipe_Git.runs/synth_1/RISC_pipe.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file RISC_pipe_utilization_synth.rpt -pb RISC_pipe_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Dec  5 20:00:34 2021...
+INFO: [Common 17-206] Exiting Vivado at Thu Dec  9 17:52:26 2021...

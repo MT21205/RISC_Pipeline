@@ -26,8 +26,7 @@ module RW(
             input[4:0] RD_Addr_In,
             output reg[31:0] Data_Out,
             output reg Reg_Write_flag_Out,
-            output reg[4:0] Dest_Reg_Addr_Out,
-            output reg[4:0] RD_Addr_Out
+            output reg[4:0] Dest_Reg_Addr_Out
             );
             
     // Based on the value in the Opcode i.e., Inst[6:2] -> 5bits
@@ -43,12 +42,10 @@ module RW(
         Data_Out <= 32'dx;
         Reg_Write_flag_Out <= 32'dx;
         Dest_Reg_Addr_Out <= 5'dx;
-        RD_Addr_Out <= 5'dx;
     end
     
     always@(*)
     begin
-        RD_Addr_Out <= RD_Addr_In;
         Reg_Write_flag_Out <= 1'd0;
         Dest_Reg_Addr_Out <= 5'd0;
         case(Inst_Type_In)

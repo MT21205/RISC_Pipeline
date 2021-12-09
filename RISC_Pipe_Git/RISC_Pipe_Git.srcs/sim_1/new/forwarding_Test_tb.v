@@ -78,7 +78,6 @@ module forwarding_Test_tb;
     wire[31:0] RW_Data_Out;
     wire RW_Reg_Write_flag_Out;
     wire[4:0] RW_Dest_Reg_Addr_Out;
-    wire[4:0] WB_RD_Addr_Out;
     
     
     //Outputs of Forward Unit
@@ -206,7 +205,7 @@ module forwarding_Test_tb;
                 //Inputs
                 .clk(clk),
                 .Data_In(MA_Register_Data_Out),
-                .Inst_Type_In(EX_MA_Inst_Type_Out),
+                .Inst_Type_In(MA_Inst_Type_Out),
                 .RD_Addr_In(MA_RD_Addr_Out),
                 //Outputs
                 .Data_Out(MA_RW_Data_Out),
@@ -222,8 +221,7 @@ module forwarding_Test_tb;
             //Outputs
             .Data_Out(RW_Data_Out),
             .Reg_Write_flag_Out(RW_Reg_Write_flag_Out),
-            .Dest_Reg_Addr_Out(RW_Dest_Reg_Addr_Out),
-            .RD_Addr_Out(WB_RD_Addr_Out)
+            .Dest_Reg_Addr_Out(RW_Dest_Reg_Addr_Out)
             );
 			 
     Forward_Unit forwarding_control(
