@@ -47,7 +47,7 @@ module RW(
     always@(*)
     begin
         Reg_Write_flag_Out <= 1'd0;
-        Dest_Reg_Addr_Out <= 5'd0;
+        Dest_Reg_Addr_Out <= RD_Addr_In;
         case(Inst_Type_In)
             IMMEDIATE_TYPE,
             REGISTER_REGISTER_TYPE,
