@@ -54,7 +54,7 @@ Testbench to be used:
 forwarding_Test_tb.v
 
 Output Register File:
-Updated_Reg_Mem.txt
+Updated_Reg_Mem.txt -> This file is present in the path "RISC_Pipe_Git.sim\sim_1\behav\xsim" from the project root directory.
 
 Process to test:
 1. Import the Project.
